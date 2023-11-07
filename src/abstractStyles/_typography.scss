@@ -2,46 +2,54 @@
 
 // Font Families
 
-$heading-font: "Lora", serif;
-$text-font: "Poppins", sans-serif;
+$heading-font: "Open Sans", sans-serif;
+$text-font: "Open Sans", sans-serif;
 
 // Mixins
 
 @mixin headingBasics($color) {
   font-family: $heading-font;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 2px;
+  line-height: 1.4;
   color: $color;
 }
 
 @mixin H1($color: $secondary-color-05) {
   @include headingBasics($color);
-  font-size: 42px;
-}
-
-@mixin H2($color: $secondary-color-05, $font-size: 32px) {
-  @include headingBasics($color);
-  font-size: $font-size;
-}
-
-@mixin H3($color: $secondary-color-05) {
-  @include headingBasics($color);
-  font-size: 24px;
-}
-
-@mixin P($color: $tertiary-color-05) {
-  font-family: $text-font;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: $color;
-}
-
-@mixin P-light($color: $tertiary-color-05) {
-  font-family: $text-font;
+  font-size: 60px;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 1.5;
-  color: $color;
 }
+
+@mixin Nav {
+  font-size: $text-font;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 1.4;
+  color: $black-300;
+  text-decoration: none;
+}
+
+// @mixin H2($color: $secondary-color-05, $font-size: 32px) {
+//   @include headingBasics($color);
+//   font-size: $font-size;
+// }
+
+// @mixin H3($color: $secondary-color-05) {
+//   @include headingBasics($color);
+//   font-size: 24px;
+// }
+
+// @mixin P($color: $tertiary-color-05) {
+//   font-family: $text-font;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 1.5;
+//   color: $color;
+// }
+
+// @mixin P-light($color: $tertiary-color-05) {
+//   font-family: $text-font;
+//   font-weight: 300;
+//   font-size: 16px;
+//   line-height: 1.5;
+//   color: $color;
+// }

@@ -4,8 +4,20 @@
   }
 }
 
+@mixin for-phone-only {
+  @media (width <= 550px) {
+    @content;
+  }
+}
+
 @mixin for-desktop-only {
   @media (width > 850px) {
+    @content;
+  }
+}
+
+@mixin for-smaller-than-desktop {
+  @media (width <= 850px) {
     @content;
   }
 }

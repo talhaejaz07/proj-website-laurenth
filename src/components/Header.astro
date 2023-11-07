@@ -3,34 +3,63 @@ import logoColored from "../assets/svgs/logo-colored.svg";
 ---
 
 <header>
-    <img src={logoColored.src} alt="Logo" />
-    <nav>
-        <ul>
-            <li>
-                <a href="./">Über uns</a>
-            </li>
-            <li>
-                <a href="./">Leistungen</a>
-            </li>
-            <li>
-                <a href="./">Siegertreppe</a>
-            </li>
-            <li>
-                <a href="./">Blog</a>
-            </li>
-            <li>
-                <a href="./">App</a>
-            </li>
-            <li>
-                <a href="./">Kontakt</a>
-            </li>
-        </ul>
-    </nav>
+  <a class="logo" href="./"><img src={logoColored.src} alt="Logo" /></a>
+
+  <nav>
+    <ul>
+      <li>
+        <a class="nav-link" href="./uber-uns">Über uns</a>
+      </li>
+      <li>
+        <a class="nav-link" href="./leistungen">Leistungen</a>
+      </li>
+      <li>
+        <a class="nav-link" href="./siegertreppe">Siegertreppe</a>
+      </li>
+      <li>
+        <a class="nav-link" href="./blog">Blog</a>
+      </li>
+      <li>
+        <a class="nav-link" href="./app">App</a>
+      </li>
+      <li>
+        <a class="nav-link" href="./kontakt">Kontakt</a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <style lang="scss">
-    @use "../abstractStyles/" as *;
-    header {
-        @include container();
+  @use "../abstractStyles/" as *;
+  header {
+    @include container();
+
+    display: grid;
+    grid-template-columns: 288px 1fr;
+
+    @include for-smaller-than-desktop {
+      grid-template-columns: 1fr;
     }
+
+    @include for-phone-only {
+      grid-template-columns: 288px 1fr;
+    }
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+  ul {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  li {
+    list-style: none;
+  }
+  .nav-link {
+    @include Nav();
+  }
 </style>
