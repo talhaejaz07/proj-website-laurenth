@@ -1,0 +1,27 @@
+---
+const { href, text } = Astro.props;
+---
+
+<a href={href}>
+  <button>{text}</button>
+</a>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  button {
+    font-family: $text-font;
+    font-size: 22px;
+    line-height: 1.4;
+    color: white;
+    background-color: $primary-500;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 40px;
+    padding-left: 40px;
+
+    border-width: 0px;
+    border-radius: 10px;
+  }
+</style>

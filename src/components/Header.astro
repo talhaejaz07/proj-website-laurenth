@@ -34,15 +34,15 @@ import Cross from "../assets/svgs/cross.svg";
 </header>
 
 <script>
-  let navigation = document.querySelector("header");
+  let header: any = document.querySelector("header");
   let click = false;
   let clickEvent = () => {
     click = !click;
 
     if (click) {
-      navigation.setAttribute("data-click", "true");
+      header.setAttribute("data-click", "true");
     } else {
-      navigation.setAttribute("data-click", "false");
+      header.setAttribute("data-click", "false");
     }
   };
   let icons = document.getElementsByClassName("phone-menu");

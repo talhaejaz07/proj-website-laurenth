@@ -1,5 +1,141 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+
+import HeroImage from "../assets/images/hero-image.webp";
+
+import Beratung from "../assets/svgs/beratung.svg";
+import Coaching from "../assets/svgs/coaching.svg";
+import Umsetzung from "../assets/svgs/umsetzung.svg";
+
+import VideoImage from "../assets/images/video-img.webp";
 ---
 
-<Layout title="Lauenroth">Hello World!</Layout>
+<Layout title="Startseite">
+  <section class="hero">
+    <!-- <div class="bg-circle"></div> -->
+    <h1>
+      Gute Ziele inspirieren –<br /> Individuelle Lösungen für erfolgreiche
+      Unternehmenskultur
+    </h1>
+    <h2 class="sub-heading">Unternehmensberatung & Coaching</h2>
+    <div class="button">
+      <Button href="#" text="Das sind wir" />
+    </div>
+
+    <div class="image">
+      <img src={HeroImage.src} alt="hero image" />
+    </div>
+
+    <div class="icon-list">
+      <img src={Beratung.src} alt="beratung" />
+      <img src={Coaching.src} alt="coaching" />
+      <img src={Umsetzung.src} alt="umsetzung" />
+    </div>
+  </section>
+
+  <div class="quote-heading-wrapper">
+    <h2 class="quote-heading">
+      „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
+      was niemand denkt.“
+    </h2>
+  </div>
+
+  <section class="section-two">
+    <h2 class="second-heading">
+      Veränderungsprozesse erfolgreich gestalten – durch eine Verbindung von
+      persönlicher Interaktion und digitalen Möglichkeiten
+    </h2>
+    <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3>
+
+    <img class="video-image" src={VideoImage.src} alt="video-image" />
+
+    <div class="button">
+      <Button href="#" text="Die Siegertreppe" />
+    </div>
+
+    <p>Erfolgreiche Zusammenarbeit mit:</p>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+  .hero {
+    position: relative;
+    overflow: hidden;
+    @include container();
+    padding-top: 100px;
+  }
+
+  //   .bg-circle {
+  //     height: 5853px;
+  //     width: 5853px;
+  //     background-color: $primary-200;
+  //     border-radius: 50%;
+
+  //     position: absolute;
+  //     z-index: -1;
+  //     top: -50%;
+  //   }
+
+  h1 {
+    @include H1();
+    text-align: center;
+  }
+  .sub-heading {
+    @include H2();
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 130px;
+  }
+
+  .image {
+    position: relative;
+
+    padding-bottom: 140px;
+  }
+
+  .icon-list {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 120px;
+  }
+
+  .quote-heading-wrapper {
+    background-color: $red-400;
+  }
+  .quote-heading {
+    @include container();
+    @include H1($light-000);
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .section-two {
+    @include container();
+    padding-top: 200px;
+  }
+  .second-heading {
+    @include H1();
+    text-align: center;
+  }
+
+  .second-subheading {
+    @include H2();
+    text-align: center;
+    padding-bottom: 130px;
+  }
+
+  .video-image {
+    padding-bottom: 140px;
+  }
+  p {
+    @include P();
+  }
+</style>
