@@ -9,6 +9,7 @@ import Coaching from "../assets/svgs/coaching.svg";
 import Umsetzung from "../assets/svgs/umsetzung.svg";
 
 import VideoImage from "../assets/images/video-img.webp";
+import CWS from "../assets/svgs/cws.svg";
 ---
 
 <Layout title="Startseite">
@@ -56,6 +57,31 @@ import VideoImage from "../assets/images/video-img.webp";
 
     <p>Erfolgreiche Zusammenarbeit mit:</p>
   </section>
+
+  <div class="sponsors">
+    <div class="sponsor-image-wrapper">
+      <img src={CWS.src} alt="sponsor" />
+      <img src={CWS.src} alt="sponsor" />
+      <img src={CWS.src} alt="sponsor" />
+      <img src={CWS.src} alt="sponsor" />
+      <img src={CWS.src} alt="sponsor" />
+    </div>
+  </div>
+
+  <div class="book-quote">
+    <div class="book-quote-wrapper">
+      <h2 class="book-quote-heading">
+        Inspiration und Motivation mit Praxisbeispielen
+      </h2>
+      <h3 class="book-quote-subheading">
+        Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth –
+        Führung, Teamentwicklung und mehr.
+      </h3>
+      <div class="button">
+        <Button href="#" text="Bücher entdecken" />
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style lang="scss">
@@ -137,5 +163,39 @@ import VideoImage from "../assets/images/video-img.webp";
   }
   p {
     @include P();
+  }
+
+  .sponsors {
+    background-color: $black-200;
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    .sponsor-image-wrapper {
+      @include container();
+
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  .book-quote {
+    margin-top: 200px;
+    background-color: $green-300;
+    padding-top: 100px;
+  }
+
+  .book-quote-wrapper {
+    @include container();
+  }
+
+  .book-quote-heading {
+    @include H1();
+    text-align: center;
+  }
+
+  .book-quote-subheading {
+    @include H3();
+    text-align: center;
+    padding-bottom: 70px;
   }
 </style>
