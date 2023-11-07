@@ -31,12 +31,12 @@ $text-font: "Open Sans", sans-serif;
   font-weight: 300;
 }
 
-@mixin Nav {
+@mixin Nav($color: $black-900) {
   font-family: $text-font;
   font-weight: 300;
   font-size: 25px;
   line-height: 1.4;
-  color: $black-300;
+  color: $color;
   text-decoration: none;
 }
 

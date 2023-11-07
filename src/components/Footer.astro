@@ -1,0 +1,149 @@
+---
+import logoWhite from "../assets/svgs/logo-white.svg";
+
+import Button from "./Button.astro";
+
+import Fb from "../assets/svgs/fb.svg";
+import xing from "../assets/svgs/xing.svg";
+import linkdin from "../assets/svgs/linkdin.svg";
+---
+
+<footer>
+  <div class="pre-footer">
+    <h2>Möchten Sie uns kennenlernen?</h2>
+    <h3>
+      Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!
+    </h3>
+    <div class="button">
+      <Button href="#" text="Das sind wir" />
+    </div>
+  </div>
+
+  <div class="main-footer">
+    <div class="footer-wrapper">
+      <div class="column">
+        <img src={logoWhite.src} alt="logo white" />
+        <ul>
+          <li>
+            <a class="nav-link" href="/uber-uns">Über uns</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/leistungen">Leistungen</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/siegertreppe">Siegertreppe</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/app">App</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/kontakt">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+      <div class="column second-links">
+        <ul>
+          <li>
+            <a class="nav-link" href="#">Datenschutz</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">Impressum</a>
+          </li>
+        </ul>
+      </div>
+      <div class="column icons">
+        <div class="icon-wrapper">
+          <img src={Fb.src} alt="facebook" />
+          <img src={xing.src} alt="xing" />
+          <img src={linkdin.src} alt="linkdin" />
+        </div>
+      </div>
+      <div class="column contact">
+        <p>
+          <b>Kontaktieren Sie uns</b>
+        </p>
+        <p>Schnetzen 1/1 88276 Berg</p>
+
+        <p><b>Rufen Sie uns an</b></p>
+        <p>07504 971 82 42</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .pre-footer {
+    @include container();
+    margin-top: 150px;
+
+    h2 {
+      @include H1();
+      text-align: center;
+    }
+
+    h3 {
+      @include H3();
+      text-align: center;
+      padding-bottom: 65px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 150px;
+    }
+  }
+
+  .main-footer {
+    background-color: $primary-500;
+    padding-top: 100px;
+    padding-bottom: 120px;
+  }
+
+  .footer-wrapper {
+    @include container();
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .nav-link {
+    @include Nav($light-000);
+  }
+
+  li {
+    list-style: none;
+    padding-bottom: 12px;
+  }
+
+  .second-links {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .icons {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .icon-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  p {
+    @include Nav($light-000);
+    padding-bottom: 30px;
+  }
+</style>
