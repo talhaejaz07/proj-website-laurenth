@@ -7,7 +7,7 @@ import Cross from "../assets/svgs/cross.svg";
 <header>
   <a class="logo" href="/"><img src={logoColored.src} alt="Logo" /></a>
 
-  <nav>
+  <nav data-click="false">
     <ul>
       <li>
         <a class="nav-link" href="/uber-uns">Über uns</a>
@@ -28,26 +28,66 @@ import Cross from "../assets/svgs/cross.svg";
         <a class="nav-link" href="/kontakt">Kontakt</a>
       </li>
     </ul>
-    <img class="phone-menu hamburger" src={Hamburger.src} alt="phone menue" />
-    <img class="phone-menu cross" src={Cross.src} alt="phone menue" />
   </nav>
+  <img class="phone-menu hamburger" src={Hamburger.src} alt="phone menue" />
+  <img class="phone-menu cross" src={Cross.src} alt="phone menue" />
 </header>
+
+<script>
+  let navigation = document.querySelector("nav");
+  let click = false;
+  let clickEvent = () => {
+    click = !click;
+
+    if (click) {
+      navigation.setAttribute("data-click", "ture");
+    } else {
+      navigation.setAttribute("data-click", "false");
+    }
+  };
+  let icons = document.getElementsByClassName("phone-menu");
+
+  for (let i = 0; i < icons.length; i++) {
+    icons[i].addEventListener("click", clickEvent);
+  }
+</script>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
   header {
     @include container();
+    position: relative;
 
     display: grid;
     grid-template-columns: 288px 1fr;
   }
+
   @include for-desktop-only {
+    nav {
+      display: flex;
+    }
     .phone-menu {
       display: none;
     }
   }
-  nav {
-    position: relative;
+  @include for-smaller-than-desktop {
+    nav {
+      background-color: white;
+      position: absolute;
+      width: 100vw;
+      right: 0%;
+    }
+
+    nav[data-click="false"] {
+      transform: translateX(-100%);
+      transition: all;
+      transition-duration: 50ms;
+    }
+
+    nav[data-click="true"] {
+      transform: translateX(0%);
+      transition-duration: 50ms;
+    }
   }
   .phone-menu {
     position: absolute;
@@ -55,18 +95,29 @@ import Cross from "../assets/svgs/cross.svg";
     top: 50%;
     transform: translateY(-50%);
     width: 50px;
+    z-index: 10;
   }
   .logo {
+    position: relative;
+    z-index: 10;
     display: flex;
     justify-content: center;
   }
   ul {
     width: 100%;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   }
+
+  @include for-smaller-than-desktop {
+    ul {
+      padding: $space-large;
+      flex-direction: column;
+      height: 80vh;
+    }
+  }
+
   li {
     list-style: none;
   }
