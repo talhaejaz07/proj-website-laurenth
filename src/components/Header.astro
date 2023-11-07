@@ -4,10 +4,10 @@ import Hamburger from "../assets/svgs/hamburger.svg";
 import Cross from "../assets/svgs/cross.svg";
 ---
 
-<header>
+<header data-click="false">
   <a class="logo" href="/"><img src={logoColored.src} alt="Logo" /></a>
 
-  <nav data-click="false">
+  <nav>
     <ul>
       <li>
         <a class="nav-link" href="/uber-uns">Über uns</a>
@@ -34,13 +34,13 @@ import Cross from "../assets/svgs/cross.svg";
 </header>
 
 <script>
-  let navigation = document.querySelector("nav");
+  let navigation = document.querySelector("header");
   let click = false;
   let clickEvent = () => {
     click = !click;
 
     if (click) {
-      navigation.setAttribute("data-click", "ture");
+      navigation.setAttribute("data-click", "true");
     } else {
       navigation.setAttribute("data-click", "false");
     }
@@ -78,15 +78,29 @@ import Cross from "../assets/svgs/cross.svg";
       right: 0%;
     }
 
-    nav[data-click="false"] {
+    header[data-click="false"] nav {
       transform: translateX(-100%);
       transition: all;
       transition-duration: 50ms;
     }
 
-    nav[data-click="true"] {
+    header[data-click="true"] nav {
       transform: translateX(0%);
+      transition: all;
       transition-duration: 50ms;
+    }
+
+    header[data-click="false"] .hamburger {
+      opacity: 1;
+    }
+    header[data-click="false"] .cross {
+      opacity: 0;
+    }
+    header[data-click="true"] .hamburger {
+      opacity: 0;
+    }
+    header[data-click="true"] .cross {
+      opacity: 1;
     }
   }
   .phone-menu {
