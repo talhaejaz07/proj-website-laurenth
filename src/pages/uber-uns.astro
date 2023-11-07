@@ -1,5 +1,130 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import ProfilePic01 from "../assets/images/profiles/profile-01.webp";
+import ProfilePic02 from "../assets/images/profiles/profile-02.webp";
 ---
 
-<Layout title="Lauenroth">Über uns</Layout>
+<Layout title="Über uns">
+  <section class="intro">
+    <h1>
+      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
+      werden
+    </h1>
+    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
+  </section>
+
+  <section class="profiles">
+    <div class="profile">
+      <img class="profile-pic" src={ProfilePic01.src} alt="profile pic" />
+      <div class="tags">
+        <p>Beratung</p>
+        <p>Coaching</p>
+      </div>
+      <h3 class="name">Jörg Lauenroth</h3>
+    </div>
+
+    <div class="profile">
+      <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
+      <div class="tags">
+        <p>Beratung</p>
+        <p>Coaching</p>
+      </div>
+      <h3 class="name">Jörg Lauenroth</h3>
+    </div>
+
+    <div class="profile">
+      <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
+      <div class="tags">
+        <p>Beratung</p>
+        <p>Coaching</p>
+      </div>
+      <h3 class="name">Jörg Lauenroth</h3>
+    </div>
+
+    <div class="profile">
+      <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
+      <div class="tags">
+        <p>Beratung</p>
+        <p>Coaching</p>
+      </div>
+      <h3 class="name">Jörg Lauenroth</h3>
+    </div>
+  </section>
+
+  <div class="quote-heading">
+    <div>
+      <h2>
+        „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
+        was niemand denkt.“
+      </h2>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .intro {
+    @include container();
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    h1 {
+      @include H1();
+      text-align: center;
+    }
+    h2 {
+      @include H2();
+      text-align: center;
+    }
+  }
+
+  .profiles {
+    @include container();
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 20px;
+
+    p {
+      @include Nav();
+      background-color: $light-200;
+      padding: 5px 20px;
+      border-radius: 10px;
+      border: 1px solid $black-250;
+    }
+  }
+
+  .name {
+    @include H2();
+  }
+
+  .quote-heading {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    background-color: $primary-500;
+
+    div {
+      @include container();
+    }
+
+    h2 {
+      @include H1($light-000);
+      text-align: center;
+    }
+  }
+</style>
