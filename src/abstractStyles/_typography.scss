@@ -1,0 +1,47 @@
+@use "./colors.scss" as *;
+
+// Font Families
+
+$heading-font: "Lora", serif;
+$text-font: "Poppins", sans-serif;
+
+// Mixins
+
+@mixin headingBasics($color) {
+  font-family: $heading-font;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  color: $color;
+}
+
+@mixin H1($color: $secondary-color-05) {
+  @include headingBasics($color);
+  font-size: 42px;
+}
+
+@mixin H2($color: $secondary-color-05, $font-size: 32px) {
+  @include headingBasics($color);
+  font-size: $font-size;
+}
+
+@mixin H3($color: $secondary-color-05) {
+  @include headingBasics($color);
+  font-size: 24px;
+}
+
+@mixin P($color: $tertiary-color-05) {
+  font-family: $text-font;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color;
+}
+
+@mixin P-light($color: $tertiary-color-05) {
+  font-family: $text-font;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color;
+}

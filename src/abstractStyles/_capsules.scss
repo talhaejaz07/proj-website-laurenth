@@ -1,0 +1,6 @@
+@use "./spacings.scss" as *;
+
+@mixin container {
+  margin-inline: auto;
+  width: min(88rem, 100vw - $space-large);
+}

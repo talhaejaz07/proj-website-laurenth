@@ -1,0 +1,11 @@
+@mixin for-larger-than-phone {
+  @media (width > 550px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (width > 850px) {
+    @content;
+  }
+}

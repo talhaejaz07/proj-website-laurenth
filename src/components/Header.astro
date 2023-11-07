@@ -1,0 +1,36 @@
+---
+import logoColored from "../assets/svgs/logo-colored.svg";
+---
+
+<header>
+    <img src={logoColored.src} alt="Logo" />
+    <nav>
+        <ul>
+            <li>
+                <a href="./">Über uns</a>
+            </li>
+            <li>
+                <a href="./">Leistungen</a>
+            </li>
+            <li>
+                <a href="./">Siegertreppe</a>
+            </li>
+            <li>
+                <a href="./">Blog</a>
+            </li>
+            <li>
+                <a href="./">App</a>
+            </li>
+            <li>
+                <a href="./">Kontakt</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<style lang="scss">
+    @use "../abstractStyles/" as *;
+    header {
+        @include container();
+    }
+</style>
