@@ -1,14 +1,84 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import Blog01 from "../assets/images/blog-01.webp";
+import Blog02 from "../assets/images/blog-02.webp";
+import Blog03 from "../assets/images/blog-03.webp";
+import Blog04 from "../assets/images/blog-04.webp";
 ---
 
 <Layout title="Blog">
   <section class="intro">
     <h1>
-      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
-      werden
+      Tipps, Strategien und Denkanstöße rund um das Thema persönliche
+      Weiterentwicklung
     </h1>
-    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
+    <h2>Unser persönlicher Blog</h2>
+  </section>
+
+  <section class="blog-list">
+    <div class="blog">
+      <img src={Blog01.src} alt="blog image" />
+      <div class="meta-data">
+        <div class="tags">
+          <p>Fitness</p>
+          <p>Coaching</p>
+        </div>
+        <div class="date">Von Jörg Lauenroth, 23.12.23</div>
+      </div>
+      <h2>Artikel Headline</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore.
+      </p>
+      <a href="/post">Mehr lesen &gt</a>
+    </div>
+    <div class="blog">
+      <img src={Blog02.src} alt="blog image" />
+      <div class="meta-data">
+        <div class="tags">
+          <p>Fitness</p>
+          <p>Coaching</p>
+        </div>
+        <div class="date">Von Jörg Lauenroth, 23.12.23</div>
+      </div>
+      <h2>Artikel Headline</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore.
+      </p>
+      <a href="/post">Mehr lesen &gt</a>
+    </div>
+    <div class="blog">
+      <img src={Blog03.src} alt="blog image" />
+      <div class="meta-data">
+        <div class="tags">
+          <p>Selbstentwicklung</p>
+        </div>
+        <div class="date">Von Jörg Lauenroth, 23.12.23</div>
+      </div>
+      <h2>Artikel Headline</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore.
+      </p>
+      <a href="/post">Mehr lesen &gt</a>
+    </div>
+    <div class="blog">
+      <img src={Blog04.src} alt="blog image" />
+      <div class="meta-data">
+        <div class="tags">
+          <p>Selbstentwicklung</p>
+        </div>
+        <div class="date">Von Jörg Lauenroth, 23.12.23</div>
+      </div>
+      <h2>Artikel Headline</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore.
+      </p>
+      <a href="/post">Mehr lesen &gt</a>
+    </div>
   </section>
 </Layout>
 <style lang="scss">
@@ -26,6 +96,60 @@ import Layout from "../layouts/Layout.astro";
     h2 {
       @include H2();
       text-align: center;
+    }
+  }
+
+  .blog-list {
+    @include container();
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+  }
+
+  img {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .meta-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 35px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 20px;
+
+    p {
+      @include Nav();
+      background-color: $light-200;
+      padding: 5px 20px;
+      border-radius: 10px;
+      border: 1px solid $black-250;
+    }
+  }
+
+  .date {
+    @include Nav();
+  }
+
+  .blog {
+    h2 {
+      @include H2();
+      padding-bottom: 40px;
+    }
+    p {
+      @include P();
+    }
+
+    a {
+      @include PRegular($primary-500);
+      text-decoration: none;
+      display: inline;
     }
   }
 </style>

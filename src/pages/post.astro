@@ -1,31 +1,200 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import BlogFeature from "../assets/images/blog-feature.webp";
+
+import Blog01 from "../assets/images/blog-01.webp";
+import Blog02 from "../assets/images/blog-02.webp";
 ---
 
 <Layout title="Post">
   <section class="intro">
     <h1>
-      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
-      werden
+      Artikel Headline Lorem Ipsum dolor sit invidunt ut labore et dolore magna
+      aliquyam erat, sed diam voluptua
     </h1>
-    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
+    <p>Von Jörg Lauenroth, 23.12.23</p>
   </section>
+  <article>
+    <img class="feature" src={BlogFeature.src} alt="feature" />
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+      sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+      diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+      rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+      dolor sit amet.
+    </p>
+    <h2>Other Headline</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+      sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+      diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+      rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+      dolor sit amet.
+    </p>
+  </article>
+  <div class="quote-heading">
+    <div>
+      <h2>
+        „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
+        was niemand denkt.“
+      </h2>
+    </div>
+  </div>
+
+  <section class="recent-blog-list">
+    <div class="blog">
+      <img src={Blog01.src} alt="blog image" />
+      <div class="meta-data">
+        <div class="tags">
+          <p>Fitness</p>
+          <p>Coaching</p>
+        </div>
+        <div class="date">Von Jörg Lauenroth, 23.12.23</div>
+      </div>
+      <h2>Artikel Headline</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore.
+      </p>
+      <a href="/post">Mehr lesen &gt</a>
+    </div>
+    <div class="blog">
+      <img src={Blog02.src} alt="blog image" />
+      <div class="meta-data">
+        <div class="tags">
+          <p>Fitness</p>
+          <p>Coaching</p>
+        </div>
+        <div class="date">Von Jörg Lauenroth, 23.12.23</div>
+      </div>
+      <h2>Artikel Headline</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore.
+      </p>
+      <a href="/post">Mehr lesen &gt</a>
+    </div>
+  </section>
+  <style lang="scss">
+    @use "../abstractStyles/" as *;
+
+    .intro {
+      @include container();
+      padding-top: 150px;
+      padding-bottom: 150px;
+
+      h1 {
+        @include H1();
+        text-align: center;
+      }
+      p {
+        @include Nav();
+        text-align: center;
+      }
+    }
+
+    article {
+      @include container();
+
+      .feature {
+        padding-bottom: 120px;
+      }
+
+      p {
+        @include P();
+      }
+
+      h2 {
+        @include H2();
+      }
+    }
+
+    .quote-heading {
+      margin-top: 20px;
+      padding-top: 110px;
+      padding-bottom: 110px;
+      background-color: $red-400;
+
+      div {
+        @include container();
+      }
+
+      h2 {
+        @include H1($light-000);
+        text-align: center;
+      }
+    }
+
+    .recent-blog-list {
+      padding-top: 140px;
+      @include container();
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+    }
+
+    img {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+
+    .meta-data {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 35px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 20px;
+
+      p {
+        @include Nav();
+        background-color: $light-200;
+        padding: 5px 20px;
+        border-radius: 10px;
+        border: 1px solid $black-250;
+      }
+    }
+
+    .date {
+      @include Nav();
+    }
+
+    .blog {
+      h2 {
+        @include H2();
+        padding-bottom: 40px;
+      }
+      p {
+        @include P();
+      }
+
+      a {
+        @include PRegular($primary-500);
+        text-decoration: none;
+        display: inline;
+      }
+    }
+  </style>
 </Layout>
-<style lang="scss">
-  @use "../abstractStyles/" as *;
-
-  .intro {
-    @include container();
-    padding-top: 150px;
-    padding-bottom: 150px;
-
-    h1 {
-      @include H1();
-      text-align: center;
-    }
-    h2 {
-      @include H2();
-      text-align: center;
-    }
-  }
-</style>

@@ -1,14 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import Calendly from "../assets/images/calendly.webp";
 ---
 
 <Layout title="kontakt">
   <section class="intro">
-    <h1>
-      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
-      werden
-    </h1>
-    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
+    <h1>Möchten Sie uns kennenlernen? Nehmen Sie gerne Kontakt mit uns auf</h1>
+    <h2>Wir freuen uns von Ihnen zu hören</h2>
+    <img src={Calendly.src} alt="calendly" />
   </section>
 </Layout>
 
@@ -18,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
   .intro {
     @include container();
     padding-top: 150px;
-    padding-bottom: 150px;
+    padding-bottom: 60px;
 
     h1 {
       @include H1();
@@ -27,6 +27,7 @@ import Layout from "../layouts/Layout.astro";
     h2 {
       @include H2();
       text-align: center;
+      padding-bottom: 120px;
     }
   }
 </style>

@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 
 import MainImage from "../assets/images/video-img.webp";
+
+import Tabs from "../assets/images/tabs.webp";
 ---
 
 <Layout title="Siegertreppe">
@@ -23,9 +25,33 @@ import MainImage from "../assets/images/video-img.webp";
     </p>
   </section>
 
-  <section class="list">
-    <h2>Leistungen</h2>
+  <section class="tabs">
+    <div class="wrapper">
+      <h2>Siegertreppe</h2>
+      <p>
+        Sieben Schritte, die sowohl analoge als auch digitale Elemente
+        beinhalten. Sieben Schritte, die Umsetzungserfolg garantieren.
+      </p>
+      <div class="container">
+        <img src={Tabs.src} alt="tabs" />
+        <h2>Step 1</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua.
+        </p>
+      </div>
+    </div>
   </section>
+
+  <div class="quote-heading">
+    <div>
+      <h2>
+        „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
+        was niemand denkt.“
+      </h2>
+    </div>
+  </div>
 </Layout>
 <style lang="scss">
   @use "../abstractStyles/" as *;
@@ -53,6 +79,51 @@ import MainImage from "../assets/images/video-img.webp";
       text-align: center;
       padding-top: 100px;
       padding-bottom: 100px;
+    }
+  }
+
+  .tabs {
+    background-color: $primary-200;
+    padding-top: 120px;
+    padding-bottom: 200px;
+
+    .wrapper {
+      @include container();
+    }
+
+    h2 {
+      @include H1();
+      text-align: center;
+      padding-bottom: 100px;
+    }
+
+    p {
+      @include P();
+      text-align: center;
+      padding-bottom: 130px;
+    }
+
+    .container {
+      padding: 100px 80px 0px 100px;
+      background-color: $light-000;
+
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .quote-heading {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    background-color: $green-300;
+
+    div {
+      @include container();
+    }
+
+    h2 {
+      @include H1($light-000);
+      text-align: center;
     }
   }
 </style>
