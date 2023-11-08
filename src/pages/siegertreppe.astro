@@ -1,5 +1,58 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import MainImage from "../assets/images/video-img.webp";
 ---
 
-<Layout title="Lauenroth">Siegertreppe</Layout>
+<Layout title="Siegertreppe">
+  <section class="intro">
+    <h1>
+      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
+      werden
+    </h1>
+    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
+  </section>
+
+  <section class="image">
+    <img src={MainImage.src} alt="video image" />
+    <p>
+      Wir helfen, das volle Potenzial Ihres Unternehmens auszuschöpfen. Wir
+      bieten maßgeschneiderte Lösungen, die auf Ihre individuellen Bedürfnisse
+      zugeschnitten sind, und begleiten Sie auf jedem Schritt Ihres
+      Erfolgspfades.
+    </p>
+  </section>
+
+  <section class="list">
+    <h2>Leistungen</h2>
+  </section>
+</Layout>
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .intro {
+    @include container();
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    h1 {
+      @include H1();
+      text-align: center;
+    }
+    h2 {
+      @include H2();
+      text-align: center;
+    }
+  }
+
+  .image {
+    @include container();
+
+    p {
+      @include P();
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+</style>

@@ -1,5 +1,185 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import MainImage from "../assets/images/video-img.webp";
+
+import Beratung from "../assets/svgs/beratung.svg";
+import Coaching from "../assets/svgs/coaching.svg";
+import Umsetzung from "../assets/svgs/umsetzung.svg";
+
+import Button from "../components/Button.astro";
 ---
 
-<Layout title="Lauenroth">Leistungen</Layout>
+<Layout title="Leistungen">
+  <section class="intro">
+    <h1>Beratung, Coaching und Umsetzung für nachhaltigen Erfolg</h1>
+    <h2>Unser Leistungsportfolio</h2>
+  </section>
+
+  <section class="image">
+    <img src={MainImage.src} alt="video image" />
+    <p>
+      Wir helfen, das volle Potenzial Ihres Unternehmens auszuschöpfen. Wir
+      bieten maßgeschneiderte Lösungen, die auf Ihre individuellen Bedürfnisse
+      zugeschnitten sind, und begleiten Sie auf jedem Schritt Ihres
+      Erfolgspfades.
+    </p>
+  </section>
+
+  <section class="list">
+    <div class="wrapper">
+      <h2>Leistungen</h2>
+
+      <div class="grid">
+        <img src={Beratung.src} alt="beratung" />
+        <div class="discription">
+          <p class="regular">
+            Möglichkeiten auffächern und dann auf die optimale Richtung
+            fokussieren. So beraten wir.
+          </p>
+          <p class="light">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd.
+          </p>
+        </div>
+        <img src={Coaching.src} alt="coaching" />
+        <div class="discription">
+          <p class="regular">
+            Coaching ist ein Turbo-Lader, wenn es darum geht, erfolgreiche
+            Lösungen zu finden.
+          </p>
+          <p class="light">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd.
+          </p>
+        </div>
+        <img src={Umsetzung.src} alt="umsetzung" />
+        <div class="discription">
+          <p class="regular">
+            Das Geplante umsetzen. Jeden Tag, an jeder Stelle Ihres
+            Unternehmens. So geht Erfolg.
+          </p>
+          <p class="light">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="book-quote">
+    <div class="book-quote-wrapper">
+      <h2 class="book-quote-heading">
+        Inspiration und Motivation mit Praxisbeispielen
+      </h2>
+      <h3 class="book-quote-subheading">
+        Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth –
+        Führung, Teamentwicklung und mehr.
+      </h3>
+      <div class="button">
+        <Button href="#" text="Bücher entdecken" />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .intro {
+    @include container();
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    h1 {
+      @include H1();
+      text-align: center;
+    }
+    h2 {
+      @include H2();
+      text-align: center;
+    }
+  }
+
+  .image {
+    @include container();
+
+    p {
+      @include P();
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+
+  .list {
+    background-color: $primary-200;
+
+    padding-top: 130px;
+    padding-bottom: 200px;
+
+    h2 {
+      @include H1();
+      text-align: center;
+      padding-bottom: 120px;
+    }
+
+    .wrapper {
+      @include container();
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 120px;
+
+    .discription {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .regular {
+        @include PRegular();
+      }
+
+      .light {
+        @include P();
+      }
+    }
+  }
+
+  .book-quote {
+    margin-top: 200px;
+    background-color: $green-300;
+    padding-top: 100px;
+  }
+
+  .book-quote-wrapper {
+    @include container();
+  }
+
+  .book-quote-heading {
+    @include H1();
+    text-align: center;
+  }
+
+  .book-quote-subheading {
+    @include H3();
+    text-align: center;
+    padding-bottom: 70px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 130px;
+  }
+</style>

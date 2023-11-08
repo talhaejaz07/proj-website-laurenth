@@ -53,6 +53,14 @@ $text-font: "Open Sans", sans-serif;
   line-height: 1.4;
   color: $color;
 }
+
+@mixin PRegular($color: $black-900) {
+  font-family: $text-font;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.4;
+  color: $color;
+}
 // @mixin H2($color: $secondary-color-05, $font-size: 32px) {
 //   @include headingBasics($color);
 //   font-size: $font-size;

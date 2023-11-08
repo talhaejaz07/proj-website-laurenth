@@ -2,4 +2,30 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Lauenroth">Blog</Layout>
+<Layout title="Blog">
+  <section class="intro">
+    <h1>
+      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
+      werden
+    </h1>
+    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
+  </section>
+</Layout>
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .intro {
+    @include container();
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    h1 {
+      @include H1();
+      text-align: center;
+    }
+    h2 {
+      @include H2();
+      text-align: center;
+    }
+  }
+</style>
