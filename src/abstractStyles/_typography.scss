@@ -31,6 +31,12 @@ $text-font: "Open Sans", sans-serif;
   font-weight: 300;
 }
 
+@mixin H3Bold($color: $black-900) {
+  @include headingBasics($color);
+  font-size: 30px;
+  font-weight: 500;
+}
+
 @mixin Nav($color: $black-900) {
   font-family: $text-font;
   font-weight: 300;
