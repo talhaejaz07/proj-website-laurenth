@@ -3,6 +3,11 @@ import Layout from "../layouts/Layout.astro";
 
 import ProfilePic01 from "../assets/images/profiles/profile-01.webp";
 import ProfilePic02 from "../assets/images/profiles/profile-02.webp";
+
+import About01 from "../assets/images/about-01.webp";
+import About02 from "../assets/images/about-02.webp";
+
+import Banner from "../assets/images/banner.webp";
 ---
 
 <Layout title="Über uns">
@@ -60,6 +65,32 @@ import ProfilePic02 from "../assets/images/profiles/profile-02.webp";
       </h2>
     </div>
   </div>
+
+  <section class="about">
+    <h2>Über uns</h2>
+    <div class="wrapper">
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd.
+      </p>
+      <img src={About01.src} alt="about pic" />
+      <img src={About02.src} alt="about pic" />
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd.
+      </p>
+    </div>
+  </section>
+
+  <img class="banner" src={Banner.src} alt="banner" />
+
+  <section class="testimonials">
+    <h2>Testimonials</h2>
+  </section>
 </Layout>
 
 <style lang="scss">
@@ -124,6 +155,42 @@ import ProfilePic02 from "../assets/images/profiles/profile-02.webp";
 
     h2 {
       @include H1($light-000);
+      text-align: center;
+    }
+  }
+
+  .about {
+    @include container();
+    padding-top: 130px;
+    padding-bottom: 130px;
+
+    h2 {
+      @include H1();
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+
+      p {
+        @include P();
+      }
+    }
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .testimonials {
+    @include container();
+    padding-top: 130px;
+
+    h2 {
+      @include H1();
       text-align: center;
     }
   }
