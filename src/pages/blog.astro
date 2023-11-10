@@ -8,6 +8,8 @@ import Blog04 from "../assets/images/blog-04.webp";
 ---
 
 <Layout title="Blog">
+  <div class="bg-circle"></div>
+
   <section class="intro">
     <h1>
       Tipps, Strategien und Denkanstöße rund um das Thema persönliche
@@ -83,6 +85,24 @@ import Blog04 from "../assets/images/blog-04.webp";
 </Layout>
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  body {
+    position: relative;
+  }
+
+  .bg-circle {
+    height: 5853px;
+    width: 5853px;
+    background-color: $primary-200;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: -5266px;
+  }
 
   .intro {
     @include container();

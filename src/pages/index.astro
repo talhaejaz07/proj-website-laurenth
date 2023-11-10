@@ -13,8 +13,8 @@ import CWS from "../assets/svgs/cws.svg";
 ---
 
 <Layout title="Startseite">
+  <div class="bg-circle"></div>
   <section class="hero">
-    <!-- <div class="bg-circle"></div> -->
     <h1>
       Gute Ziele inspirieren –<br /> Individuelle Lösungen für erfolgreiche
       Unternehmenskultur
@@ -86,23 +86,27 @@ import CWS from "../assets/svgs/cws.svg";
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  .bg-circle {
+    height: 5853px;
+    width: 5853px;
+    background-color: $primary-200;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: -4771px;
+  }
+
   .hero {
     position: relative;
     overflow: hidden;
     @include container();
     padding-top: 100px;
   }
-
-  //   .bg-circle {
-  //     height: 5853px;
-  //     width: 5853px;
-  //     background-color: $primary-200;
-  //     border-radius: 50%;
-
-  //     position: absolute;
-  //     z-index: -1;
-  //     top: -50%;
-  //   }
 
   h1 {
     @include H1();

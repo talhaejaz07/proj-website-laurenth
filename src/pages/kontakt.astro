@@ -5,6 +5,8 @@ import Calendly from "../assets/images/calendly.webp";
 ---
 
 <Layout title="kontakt">
+  <div class="bg-circle"></div>
+
   <section class="intro">
     <h1>Möchten Sie uns kennenlernen? Nehmen Sie gerne Kontakt mit uns auf</h1>
     <h2>Wir freuen uns von Ihnen zu hören</h2>
@@ -14,6 +16,23 @@ import Calendly from "../assets/images/calendly.webp";
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
+  body {
+    position: relative;
+  }
+
+  .bg-circle {
+    height: 5853px;
+    width: 5853px;
+    background-color: $primary-200;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: -5266px;
+  }
 
   .intro {
     @include container();

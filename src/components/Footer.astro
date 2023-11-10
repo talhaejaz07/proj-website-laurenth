@@ -8,74 +8,98 @@ import xing from "../assets/svgs/xing.svg";
 import linkdin from "../assets/svgs/linkdin.svg";
 ---
 
-<footer>
-  <div class="pre-footer">
-    <h2>Möchten Sie uns kennenlernen?</h2>
-    <h3>
-      Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!
-    </h3>
-    <div class="button">
-      <Button href="#" text="Kostenloses Beratungsgespräch Anfragen" />
-    </div>
-  </div>
+<section>
+  <div class="bg-circle"></div>
 
-  <div class="main-footer">
-    <div class="footer-wrapper">
-      <div class="column">
-        <img src={logoWhite.src} alt="logo white" />
-        <ul>
-          <li>
-            <a class="nav-link" href="/uber-uns">Über uns</a>
-          </li>
-          <li>
-            <a class="nav-link" href="/leistungen">Leistungen</a>
-          </li>
-          <li>
-            <a class="nav-link" href="/siegertreppe">Siegertreppe</a>
-          </li>
-          <li>
-            <a class="nav-link" href="/blog">Blog</a>
-          </li>
-          <li>
-            <a class="nav-link" href="/app">App</a>
-          </li>
-          <li>
-            <a class="nav-link" href="/kontakt">Kontakt</a>
-          </li>
-        </ul>
+  <footer>
+    <div class="pre-footer">
+      <h2>Möchten Sie uns kennenlernen?</h2>
+      <h3>
+        Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!
+      </h3>
+      <div class="button">
+        <Button href="#" text="Kostenloses Beratungsgespräch Anfragen" />
       </div>
-      <div class="column second-links">
-        <ul>
-          <li>
-            <a class="nav-link" href="#">Datenschutz</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">Impressum</a>
-          </li>
-        </ul>
-      </div>
-      <div class="column icons">
-        <div class="icon-wrapper">
-          <img src={Fb.src} alt="facebook" />
-          <img src={xing.src} alt="xing" />
-          <img src={linkdin.src} alt="linkdin" />
+    </div>
+
+    <div class="main-footer">
+      <div class="footer-wrapper">
+        <div class="column">
+          <img src={logoWhite.src} alt="logo white" />
+          <ul>
+            <li>
+              <a class="nav-link" href="/uber-uns">Über uns</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/leistungen">Leistungen</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/siegertreppe">Siegertreppe</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/blog">Blog</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/app">App</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/kontakt">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+        <div class="column second-links">
+          <ul>
+            <li>
+              <a class="nav-link" href="#">Datenschutz</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#">Impressum</a>
+            </li>
+          </ul>
+        </div>
+        <div class="column icons">
+          <div class="icon-wrapper">
+            <img src={Fb.src} alt="facebook" />
+            <img src={xing.src} alt="xing" />
+            <img src={linkdin.src} alt="linkdin" />
+          </div>
+        </div>
+        <div class="column contact">
+          <p>
+            <b>Kontaktieren Sie uns</b>
+          </p>
+          <p>Schnetzen 1/1 88276 Berg</p>
+
+          <p><b>Rufen Sie uns an</b></p>
+          <p>07504 971 82 42</p>
         </div>
       </div>
-      <div class="column contact">
-        <p>
-          <b>Kontaktieren Sie uns</b>
-        </p>
-        <p>Schnetzen 1/1 88276 Berg</p>
-
-        <p><b>Rufen Sie uns an</b></p>
-        <p>07504 971 82 42</p>
-      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+</section>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  section {
+    position: relative;
+
+    overflow: hidden;
+  }
+
+  .bg-circle {
+    height: 5853px;
+    width: 5853px;
+    background-color: $primary-200;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -4800px;
+  }
 
   .pre-footer {
     @include container();

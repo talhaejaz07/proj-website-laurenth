@@ -11,6 +11,8 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout title="Leistungen">
+  <div class="bg-circle"></div>
+
   <section class="intro">
     <h1>Beratung, Coaching und Umsetzung für nachhaltigen Erfolg</h1>
     <h2>Unser Leistungsportfolio</h2>
@@ -92,6 +94,24 @@ import Button from "../components/Button.astro";
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  body {
+    position: relative;
+  }
+
+  .bg-circle {
+    height: 5853px;
+    width: 5853px;
+    background-color: $primary-200;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: -5266px;
+  }
 
   .intro {
     @include container();

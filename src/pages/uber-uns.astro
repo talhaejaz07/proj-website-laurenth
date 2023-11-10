@@ -13,6 +13,8 @@ import TestimonialPic01 from "../assets/images/testimonial-01.webp";
 ---
 
 <Layout title="Über uns">
+  <div class="bg-circle"></div>
+
   <section class="intro">
     <h1>
       Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
@@ -123,6 +125,24 @@ import TestimonialPic01 from "../assets/images/testimonial-01.webp";
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  body {
+    position: relative;
+  }
+
+  .bg-circle {
+    height: 5853px;
+    width: 5853px;
+    background-color: $primary-200;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: -5266px;
+  }
 
   .intro {
     @include container();
