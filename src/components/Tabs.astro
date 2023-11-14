@@ -1,0 +1,115 @@
+---
+import { stepDescriptions, stepColors } from "../data/tabsData.js";
+---
+
+<section id="tab-section" data-tab="0">
+  <div
+    class="tabs"
+    style={`display: grid; grid-template-columns: repeat( ${
+      Object.keys(stepDescriptions).length
+    }, 1fr )`}
+  >
+    {
+      Object.keys(stepDescriptions).map((key) => (
+        <button
+          style={`background-color: ${stepColors[key]}; grid-row: ${
+            2 * Object.keys(stepDescriptions).length + 1 - 2 * key
+          }/${2 * Object.keys(stepDescriptions).length + 1}`}
+          class="tab-button"
+        >
+          {key}
+        </button>
+      ))
+    }
+  </div>
+  <div class="description">
+    {
+      Object.keys(stepDescriptions).map((key) => (
+        <div class="wrapper">
+          <h2>Step {key}</h2>
+          <p>{stepDescriptions[key]}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  let tabSection: any = document.getElementById("tab-section");
+  let buttons = document.getElementsByClassName("tab-button");
+
+  Object.keys(buttons).forEach((key) =>
+    buttons[key].addEventListener("click", () => {
+      tabSection.setAttribute("data-tab", `${key}`);
+    })
+  );
+</script>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .tabs {
+    gap: $space-small;
+  }
+
+  button {
+    @include H2($light-000);
+    border: 0px;
+    border-radius: 50px;
+    height: 50px;
+    grid-template-columns: repeat();
+    cursor: pointer;
+  }
+
+  .description {
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .wrapper {
+      grid-row: 1/2;
+      grid-column: 1/2;
+
+      opacity: 0;
+    }
+
+    h2 {
+      @include H2();
+      text-align: center;
+      padding-bottom: 45px;
+    }
+
+    p {
+      @include P();
+      text-align: center;
+    }
+  }
+
+  section[data-tab="0"] .wrapper:nth-child(1) {
+    opacity: 1;
+  }
+
+  section[data-tab="1"] .wrapper:nth-child(2) {
+    opacity: 1;
+  }
+
+  section[data-tab="2"] .wrapper:nth-child(3) {
+    opacity: 1;
+  }
+
+  section[data-tab="3"] .wrapper:nth-child(4) {
+    opacity: 1;
+  }
+
+  section[data-tab="4"] .wrapper:nth-child(5) {
+    opacity: 1;
+  }
+
+  section[data-tab="5"] .wrapper:nth-child(6) {
+    opacity: 1;
+  }
+
+  section[data-tab="6"] .wrapper:nth-child(7) {
+    opacity: 1;
+  }
+</style>

@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 import MainImage from "../assets/images/video-img.webp";
 
-import Tabs from "../assets/images/tabs.webp";
+import Tabs from "../components/Tabs.astro";
 ---
 
 <Layout title="Siegertreppe">
@@ -35,13 +35,7 @@ import Tabs from "../assets/images/tabs.webp";
         beinhalten. Sieben Schritte, die Umsetzungserfolg garantieren.
       </p>
       <div class="container">
-        <img src={Tabs.src} alt="tabs" />
-        <h2>Step 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua.
-        </p>
+        <Tabs />
       </div>
     </div>
   </section>
@@ -120,11 +114,11 @@ import Tabs from "../assets/images/tabs.webp";
     p {
       @include P();
       text-align: center;
-      padding-bottom: 130px;
     }
 
     .container {
-      padding: 100px 80px 0px 100px;
+      margin-top: 100px;
+      padding: 100px 80px 120px 100px;
       background-color: $light-000;
 
       display: flex;
