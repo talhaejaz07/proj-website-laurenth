@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import MainHeading from "../components/MainHeading.astro";
+
 import MainImage from "../assets/images/video-img.webp";
 
 import Beratung from "../assets/svgs/beratung.svg";
@@ -11,12 +13,10 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout title="Leistungen">
-  <div class="bg-circle"></div>
-
-  <section class="intro">
-    <h1>Beratung, Coaching und Umsetzung für nachhaltigen Erfolg</h1>
-    <h2>Unser Leistungsportfolio</h2>
-  </section>
+  <MainHeading
+    heading="Beratung, Coaching und Umsetzung für nachhaltigen Erfolg"
+    subHeading="Unser Leistungsportfolio"
+  />
 
   <section class="image">
     <img src={MainImage.src} alt="video image" />
@@ -94,39 +94,6 @@ import Button from "../components/Button.astro";
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
-
-  body {
-    position: relative;
-  }
-
-  .bg-circle {
-    height: 5853px;
-    width: 5853px;
-    background-color: $primary-200;
-    border-radius: 50%;
-
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    transform: translateX(-50%);
-
-    top: -5266px;
-  }
-
-  .intro {
-    @include container();
-    padding-top: 150px;
-    padding-bottom: 150px;
-
-    h1 {
-      @include H1();
-      text-align: center;
-    }
-    h2 {
-      @include H2();
-      text-align: center;
-    }
-  }
 
   .image {
     @include container();

@@ -1,21 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import MainHeading from "../components/MainHeading.astro";
+
 import MainImage from "../assets/images/video-img.webp";
 
 import Tabs from "../components/Tabs.astro";
 ---
 
 <Layout title="Siegertreppe">
-  <div class="bg-circle"></div>
-
-  <section class="intro">
-    <h1>
-      Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu
-      werden
-    </h1>
-    <h2>Das ist unser Antrieb bei allem, was wir tun</h2>
-  </section>
+  <MainHeading
+    heading="Veränderungsprozesse erfolgreich gestalten – durch eine Verbindung von persönlicher Interaktion und digitalen Möglichkeiten"
+    subHeading="Unser Konzept: die Siegertreppe"
+  />
 
   <section class="image">
     <img src={MainImage.src} alt="video image" />
@@ -51,39 +48,6 @@ import Tabs from "../components/Tabs.astro";
 </Layout>
 <style lang="scss">
   @use "../abstractStyles/" as *;
-
-  body {
-    position: relative;
-  }
-
-  .bg-circle {
-    height: 5853px;
-    width: 5853px;
-    background-color: $primary-200;
-    border-radius: 50%;
-
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    transform: translateX(-50%);
-
-    top: -5266px;
-  }
-
-  .intro {
-    @include container();
-    padding-top: 150px;
-    padding-bottom: 150px;
-
-    h1 {
-      @include H1();
-      text-align: center;
-    }
-    h2 {
-      @include H2();
-      text-align: center;
-    }
-  }
 
   .image {
     @include container();

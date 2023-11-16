@@ -1,7 +1,7 @@
 ---
 const {
   heading,
-  subheading,
+  subHeading,
   buttonVisibility = false,
   buttonText = "Das sind wir",
   buttonLink = "#",
@@ -16,7 +16,7 @@ import Button from "../components/Button.astro";
     <h1>
       {heading}
     </h1>
-    <h2 class="sub-heading">{subheading}</h2>
+    <h2 class="sub-heading">{subHeading}</h2>
     <div class="button" style=`display: ${buttonVisibility? "block": "none"}`>
       <Button href={buttonLink} text={buttonText} />
     </div>

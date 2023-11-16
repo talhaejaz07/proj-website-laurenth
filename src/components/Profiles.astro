@@ -1,0 +1,79 @@
+---
+import ProfilePic01 from "../assets/images/profiles/profile-01.webp";
+import ProfilePic02 from "../assets/images/profiles/profile-02.webp";
+---
+
+<section class="profiles">
+  <div class="profile">
+    <img class="profile-pic" src={ProfilePic01.src} alt="profile pic" />
+    <div class="tags">
+      <p>Beratung</p>
+      <p>Coaching</p>
+    </div>
+    <h3 class="name">Jörg Lauenroth</h3>
+  </div>
+
+  <div class="profile">
+    <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
+    <div class="tags">
+      <p>Beratung</p>
+      <p>Coaching</p>
+    </div>
+    <h3 class="name">Jörg Lauenroth</h3>
+  </div>
+
+  <div class="profile">
+    <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
+    <div class="tags">
+      <p>Beratung</p>
+      <p>Coaching</p>
+    </div>
+    <h3 class="name">Jörg Lauenroth</h3>
+  </div>
+
+  <div class="profile">
+    <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
+    <div class="tags">
+      <p>Beratung</p>
+      <p>Coaching</p>
+    </div>
+    <h3 class="name">Jörg Lauenroth</h3>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .profiles {
+    @include container();
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 20px;
+
+    p {
+      @include Nav();
+      background-color: $light-200;
+      padding: 5px 20px;
+      border-radius: 10px;
+      border: 1px solid $black-250;
+    }
+  }
+
+  .name {
+    @include H2();
+  }
+</style>
