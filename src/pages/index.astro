@@ -13,19 +13,20 @@ import CWS from "../assets/svgs/cws.svg";
 ---
 
 <Layout title="Startseite">
-  <div class="bg-circle"></div>
   <section class="hero">
-    <h1>
-      Gute Ziele inspirieren –<br /> Individuelle Lösungen für erfolgreiche
-      Unternehmenskultur
-    </h1>
-    <h2 class="sub-heading">Unternehmensberatung & Coaching</h2>
-    <div class="button">
-      <Button href="#" text="Das sind wir" />
-    </div>
-
-    <div class="image">
-      <img src={HeroImage.src} alt="hero image" />
+    <div class="bg-circle"></div>
+    <div class="wrapper">
+      <h1>
+        Gute Ziele inspirieren –<br /> Individuelle Lösungen für erfolgreiche
+        Unternehmenskultur
+      </h1>
+      <h2 class="sub-heading">Unternehmensberatung & Coaching</h2>
+      <div class="button">
+        <Button href="#" text="Das sind wir" />
+      </div>
+      <div class="image">
+        <img src={HeroImage.src} alt="hero image" />
+      </div>
     </div>
 
     <div class="icon-list">
@@ -44,7 +45,7 @@ import CWS from "../assets/svgs/cws.svg";
 
   <section class="section-two">
     <h2 class="second-heading">
-      Veränderungsprozesse erfolgreich gestalten – durch eine Verbindung von
+      Veränderung sprozesse erfolgreich gestalten – durch eine Verbindung von
       persönlicher Interaktion und digitalen Möglichkeiten
     </h2>
     <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3>
@@ -60,6 +61,7 @@ import CWS from "../assets/svgs/cws.svg";
 
   <div class="sponsors">
     <div class="sponsor-image-wrapper">
+      <img src={CWS.src} alt="sponsor" />
       <img src={CWS.src} alt="sponsor" />
       <img src={CWS.src} alt="sponsor" />
       <img src={CWS.src} alt="sponsor" />
@@ -104,8 +106,11 @@ import CWS from "../assets/svgs/cws.svg";
   .hero {
     position: relative;
     overflow: hidden;
-    @include container();
     padding-top: 100px;
+  }
+
+  .wrapper {
+    @include container();
   }
 
   h1 {
@@ -131,9 +136,23 @@ import CWS from "../assets/svgs/cws.svg";
   }
 
   .icon-list {
+    @include container();
+
     display: flex;
+    gap: $space-medium;
     justify-content: space-around;
     padding-bottom: 120px;
+
+    img {
+      @include for-tablet-only {
+        width: 120px;
+      }
+    }
+
+    @include for-phone-only {
+      flex-direction: column;
+      width: 180px;
+    }
   }
 
   .quote-heading-wrapper {
@@ -177,8 +196,18 @@ import CWS from "../assets/svgs/cws.svg";
     .sponsor-image-wrapper {
       @include container();
 
-      display: flex;
-      justify-content: space-around;
+      display: grid;
+      gap: $space-medium;
+      justify-items: center;
+      grid-template-columns: repeat(6, 1fr);
+
+      @include for-tablet-only {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include for-phone-only {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 

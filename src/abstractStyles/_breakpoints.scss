@@ -1,23 +1,32 @@
-@mixin for-larger-than-phone {
-  @media (width > 550px) {
+$phone-cutoff: 550px;
+$tablet-cutoff: 850px;
+
+@mixin for-desktop-only {
+  @media (width > $tablet-cutoff) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media (width <= $tablet-cutoff) and (width >= $phone-cutoff) {
     @content;
   }
 }
 
 @mixin for-phone-only {
-  @media (width <= 550px) {
+  @media (width <= $phone-cutoff) {
     @content;
   }
 }
 
-@mixin for-desktop-only {
-  @media (width > 850px) {
+@mixin for-larger-than-phone {
+  @media (width > $phone-cutoff) {
     @content;
   }
 }
 
 @mixin for-smaller-than-desktop {
-  @media (width <= 850px) {
+  @media (width <= $tablet-cutoff) {
     @content;
   }
 }

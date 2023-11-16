@@ -10,7 +10,6 @@ import linkdin from "../assets/svgs/linkdin.svg";
 
 <section>
   <div class="bg-circle"></div>
-
   <footer>
     <div class="pre-footer">
       <h2>Möchten Sie uns kennenlernen?</h2>
@@ -24,8 +23,8 @@ import linkdin from "../assets/svgs/linkdin.svg";
 
     <div class="main-footer">
       <div class="footer-wrapper">
-        <div class="column">
-          <img src={logoWhite.src} alt="logo white" />
+        <div class="column logo">
+          <a href="/"><img src={logoWhite.src} alt="logo white" /></a>
           <ul>
             <li>
               <a class="nav-link" href="/uber-uns">Über uns</a>
@@ -85,6 +84,8 @@ import linkdin from "../assets/svgs/linkdin.svg";
     position: relative;
 
     overflow: hidden;
+
+    margin-top: 80px;
   }
 
   .bg-circle {
@@ -97,13 +98,13 @@ import linkdin from "../assets/svgs/linkdin.svg";
     z-index: -1;
     left: 50%;
     transform: translateX(-50%);
-
-    bottom: -4800px;
+    top: 0;
+    // bottom: -4800px;
   }
 
   .pre-footer {
     @include container();
-    margin-top: 150px;
+    margin-top: 70px;
 
     h2 {
       @include H1();
@@ -133,6 +134,17 @@ import linkdin from "../assets/svgs/linkdin.svg";
     @include container();
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @include for-phone-only {
+      grid-template-columns: 1fr;
+      gap: $space-medium;
+    }
+  }
+
+  .logo {
+    @include for-phone-only {
+      text-align: center;
+    }
   }
 
   .nav-link {
@@ -142,11 +154,25 @@ import linkdin from "../assets/svgs/linkdin.svg";
   li {
     list-style: none;
     padding-bottom: 12px;
+
+    @include for-phone-only {
+      text-align: center;
+    }
   }
 
   .second-links {
     display: flex;
     align-items: flex-end;
+
+    ul {
+      width: 100%;
+    }
+
+    li {
+      @include for-phone-only {
+        text-align: center;
+      }
+    }
   }
 
   .icons {
@@ -158,12 +184,26 @@ import linkdin from "../assets/svgs/linkdin.svg";
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+
+    @include for-smaller-than-desktop {
+      flex-direction: column;
+      align-items: center;
+
+      gap: $space-large;
+      img {
+        width: 55px;
+      }
+    }
   }
 
   .contact {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    @include for-phone-only {
+      text-align: center;
+    }
   }
 
   p {

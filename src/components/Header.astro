@@ -58,7 +58,7 @@ import Cross from "../assets/svgs/cross.svg";
   @use "../abstractStyles/" as *;
 
   section {
-    background-color: white;
+    background-color: $light-000;
   }
 
   header {
@@ -67,6 +67,10 @@ import Cross from "../assets/svgs/cross.svg";
 
     display: grid;
     grid-template-columns: 288px 1fr;
+
+    @include for-phone-only {
+      grid-template-columns: 75% 25%;
+    }
   }
 
   @include for-desktop-only {
@@ -79,10 +83,11 @@ import Cross from "../assets/svgs/cross.svg";
   }
   @include for-smaller-than-desktop {
     nav {
-      background-color: white;
+      background-color: $light-000;
       position: absolute;
+      z-index: 1;
       width: 100vw;
-      right: 0%;
+      right: -1rem;
     }
 
     header[data-click="false"] nav {

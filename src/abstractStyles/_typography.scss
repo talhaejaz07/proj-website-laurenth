@@ -1,4 +1,5 @@
 @use "./colors.scss" as *;
+@use "./breakpoints.scss" as *;
 
 // Font Families
 
@@ -15,35 +16,90 @@ $text-font: "Open Sans", sans-serif;
 
 @mixin H1($color: $black-900) {
   @include headingBasics($color);
-  font-size: 50px;
   font-weight: 300;
+
+  @include for-desktop-only {
+    font-size: 50px;
+  }
+
+  @include for-tablet-only {
+    font-size: 40px;
+  }
+
+  @include for-phone-only {
+    font-size: 35px;
+  }
 }
 
 @mixin H2($color: $black-900) {
   @include headingBasics($color);
-  font-size: 40px;
   font-weight: 300;
+
+  @include for-desktop-only {
+    font-size: 40px;
+  }
+
+  @include for-tablet-only {
+    font-size: 30px;
+  }
+
+  @include for-phone-only {
+    font-size: 28px;
+  }
 }
 
 @mixin H3($color: $black-900) {
   @include headingBasics($color);
-  font-size: 30px;
   font-weight: 300;
+
+  @include for-desktop-only {
+    font-size: 30px;
+  }
+
+  @include for-tablet-only {
+    font-size: 26px;
+  }
+
+  @include for-phone-only {
+    font-size: 22px;
+  }
 }
 
 @mixin H3Bold($color: $black-900) {
   @include headingBasics($color);
-  font-size: 30px;
+
   font-weight: 500;
+  @include for-desktop-only {
+    font-size: 30px;
+  }
+
+  @include for-tablet-only {
+    font-size: 26px;
+  }
+
+  @include for-phone-only {
+    font-size: 22px;
+  }
 }
 
 @mixin Nav($color: $black-900) {
   font-family: $text-font;
   font-weight: 300;
-  font-size: 25px;
   line-height: 1.4;
   color: $color;
   text-decoration: none;
+
+  @include for-desktop-only {
+    font-size: 25px;
+  }
+
+  @include for-tablet-only {
+    font-size: 22px;
+  }
+
+  @include for-phone-only {
+    font-size: 20px;
+  }
 }
 
 @mixin P($color: $black-900) {
@@ -52,14 +108,37 @@ $text-font: "Open Sans", sans-serif;
   font-size: 30px;
   line-height: 1.4;
   color: $color;
+
+  @include for-desktop-only {
+    font-size: 30px;
+  }
+
+  @include for-tablet-only {
+    font-size: 24px;
+  }
+
+  @include for-phone-only {
+    font-size: 20px;
+  }
 }
 
 @mixin PRegular($color: $black-900) {
   font-family: $text-font;
   font-weight: 500;
-  font-size: 30px;
   line-height: 1.4;
   color: $color;
+
+  @include for-desktop-only {
+    font-size: 30px;
+  }
+
+  @include for-tablet-only {
+    font-size: 24px;
+  }
+
+  @include for-phone-only {
+    font-size: 20px;
+  }
 }
 // @mixin H2($color: $secondary-color-05, $font-size: 32px) {
 //   @include headingBasics($color);
