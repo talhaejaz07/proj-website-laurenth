@@ -1,9 +1,8 @@
 ---
 import { Image } from "astro:assets";
-
 import logoColored from "../assets/images/logo/logo-colored.webp";
-import Hamburger from "../assets/svgs/hamburger.svg";
-import Cross from "../assets/svgs/cross.svg";
+
+import { Icon } from "astro-icon";
 ---
 
 <section>
@@ -34,8 +33,8 @@ import Cross from "../assets/svgs/cross.svg";
         </li>
       </ul>
     </nav>
-    <img class="phone-menu hamburger" src={Hamburger.src} alt="phone menue" />
-    <img class="phone-menu cross" src={Cross.src} alt="phone menue" />
+    <Icon name="ph:list-bold" class="phone-menu open" />
+    <Icon name="ph:x-bold" class="phone-menu close" />
   </header>
 </section>
 
@@ -107,17 +106,25 @@ import Cross from "../assets/svgs/cross.svg";
       transition-duration: 50ms;
     }
 
-    header[data-click="false"] .hamburger {
+    header[data-click="false"] .open {
       opacity: 1;
+      transition-property: opacity;
+      transition-duration: 25ms;
     }
-    header[data-click="false"] .cross {
+    header[data-click="false"] .close {
       opacity: 0;
+      transition-property: opacity;
+      transition-duration: 25ms;
     }
-    header[data-click="true"] .hamburger {
+    header[data-click="true"] .open {
       opacity: 0;
+      transition-property: opacity;
+      transition-duration: 25ms;
     }
-    header[data-click="true"] .cross {
+    header[data-click="true"] .close {
       opacity: 1;
+      transition-property: opacity;
+      transition-duration: 25ms;
     }
   }
   .phone-menu {
@@ -127,6 +134,8 @@ import Cross from "../assets/svgs/cross.svg";
     transform: translateY(-50%);
     width: 50px;
     z-index: 10;
+
+    color: $primary-500;
   }
   .logo {
     position: relative;
