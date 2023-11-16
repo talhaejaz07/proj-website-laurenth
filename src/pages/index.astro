@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import MainHeading from "../components/MainHeading.astro";
 import Button from "../components/Button.astro";
 
 import HeroImage from "../assets/images/hero-image.webp";
@@ -13,78 +15,74 @@ import CWS from "../assets/svgs/cws.svg";
 ---
 
 <Layout title="Startseite">
+  <MainHeading
+    heading="Gute Ziele inspirieren - Individuelle Lösungen für erfolgreiche Unternehmenskultur"
+    subheading="Unternehmensberatung & Coaching"
+    buttonVisibility="true"
+    buttonLink="#"
+  />
+
   <section class="hero">
-    <div class="bg-circle"></div>
-    <div class="wrapper">
-      <h1>
-        Gute Ziele inspirieren –<br /> Individuelle Lösungen für erfolgreiche
-        Unternehmenskultur
-      </h1>
-      <h2 class="sub-heading">Unternehmensberatung & Coaching</h2>
-      <div class="button">
-        <Button href="#" text="Das sind wir" />
-      </div>
-      <div class="image">
-        <img src={HeroImage.src} alt="hero image" />
-      </div>
-    </div>
-
-    <div class="icon-list">
-      <img src={Beratung.src} alt="beratung" />
-      <img src={Coaching.src} alt="coaching" />
-      <img src={Umsetzung.src} alt="umsetzung" />
+    <div class="image">
+      <img src={HeroImage.src} alt="hero image" />
     </div>
   </section>
 
-  <div class="quote-heading-wrapper">
-    <h2 class="quote-heading">
-      „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
-      was niemand denkt.“
-    </h2>
-  </div>
-
-  <section class="section-two">
-    <h2 class="second-heading">
-      Veränderung sprozesse erfolgreich gestalten – durch eine Verbindung von
-      persönlicher Interaktion und digitalen Möglichkeiten
-    </h2>
-    <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3>
-
-    <img class="video-image" src={VideoImage.src} alt="video-image" />
-
-    <div class="button">
-      <Button href="#" text="Die Siegertreppe" />
-    </div>
-
-    <p>Erfolgreiche Zusammenarbeit mit:</p>
-  </section>
-
-  <div class="sponsors">
-    <div class="sponsor-image-wrapper">
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-    </div>
-  </div>
-
-  <div class="book-quote">
-    <div class="book-quote-wrapper">
-      <h2 class="book-quote-heading">
-        Inspiration und Motivation mit Praxisbeispielen
-      </h2>
-      <h3 class="book-quote-subheading">
-        Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth –
-        Führung, Teamentwicklung und mehr.
-      </h3>
-      <div class="button">
-        <Button href="#" text="Bücher entdecken" />
-      </div>
-    </div>
+  <div class="icon-list">
+    <img src={Beratung.src} alt="beratung" />
+    <img src={Coaching.src} alt="coaching" />
+    <img src={Umsetzung.src} alt="umsetzung" />
   </div>
 </Layout>
+
+<div class="quote-heading-wrapper">
+  <h2 class="quote-heading">
+    „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken, was
+    niemand denkt.“
+  </h2>
+</div>
+
+<section class="section-two">
+  <h2 class="second-heading">
+    Veränderung sprozesse erfolgreich gestalten – durch eine Verbindung von
+    persönlicher Interaktion und digitalen Möglichkeiten
+  </h2>
+  <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3>
+
+  <img class="video-image" src={VideoImage.src} alt="video-image" />
+
+  <div class="button">
+    <Button href="#" text="Die Siegertreppe" />
+  </div>
+
+  <p>Erfolgreiche Zusammenarbeit mit:</p>
+</section>
+
+<div class="sponsors">
+  <div class="sponsor-image-wrapper">
+    <img src={CWS.src} alt="sponsor" />
+    <img src={CWS.src} alt="sponsor" />
+    <img src={CWS.src} alt="sponsor" />
+    <img src={CWS.src} alt="sponsor" />
+    <img src={CWS.src} alt="sponsor" />
+    <img src={CWS.src} alt="sponsor" />
+  </div>
+</div>
+
+<div class="book-quote">
+  <div class="book-quote-wrapper">
+    <h2 class="book-quote-heading">
+      Inspiration und Motivation mit Praxisbeispielen
+    </h2>
+    <h3 class="book-quote-subheading">
+      Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth – Führung,
+      Teamentwicklung und mehr.
+    </h3>
+    <div class="button">
+      <Button href="#" text="Bücher entdecken" />
+    </div>
+  </div>
+</div>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;

@@ -1,0 +1,68 @@
+---
+const {
+  heading,
+  subheading,
+  buttonVisibility = false,
+  buttonText = "Das sind wir",
+  buttonLink = "#",
+} = Astro.props;
+
+import Button from "../components/Button.astro";
+---
+
+<section>
+  <div class="bg-circle"></div>
+  <div class="wrapper">
+    <h1>
+      {heading}
+    </h1>
+    <h2 class="sub-heading">{subheading}</h2>
+    <div class="button" style=`display: ${buttonVisibility? "block": "none"}`>
+      <Button href={buttonLink} text={buttonText} />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    position: relative;
+    margin-bottom: $space-80;
+    overflow: hidden;
+  }
+
+  .bg-circle {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    width: 5750px;
+    height: 5750px;
+    background-color: $primary-200;
+
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .wrapper {
+    @include container();
+    padding-top: $space-100;
+    padding-bottom: $space-40;
+  }
+
+  h1 {
+    @include H1();
+    text-align: center;
+  }
+
+  h2 {
+    @include H2();
+    text-align: center;
+    padding-bottom: $space-40;
+  }
+
+  .button {
+    text-align: center;
+  }
+</style>

@@ -20,27 +20,54 @@ import Favicon from "../assets/images/favicon.webp";
     <link rel="shortcut icon" href={Favicon.src} type="image/x-icon" />
     <title>{title}</title>
   </head>
-  <style is:global lang="scss">
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-
-      // outline: solid 1px red;
-    }
-
-    body {
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-    }
-  </style>
   <body>
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
+<style lang="scss" is:global>
+  @use "../abstractStyles/" as *;
+
+  html {
+    @include for-desktop-only {
+      --space-40: 40px;
+      --space-80: 80px;
+      --space-100: 100px;
+      --space-120: 120px;
+      --space-140: 140px;
+    }
+
+    @include for-tablet-only {
+      --space-40: 27px;
+      --space-80: 54px;
+      --space-100: 67px;
+      --space-120: 80px;
+      --space-140: 94px;
+    }
+
+    @include for-phone-only {
+      --space-40: 20px;
+      --space-80: 40px;
+      --space-100: 50px;
+      --space-120: 60px;
+      --space-140: 70px;
+    }
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+  }
+</style>
