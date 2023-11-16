@@ -2,9 +2,7 @@
 const { href, text } = Astro.props;
 ---
 
-<a href={href}>
-  <button>{text}</button>
-</a>
+<button href={href}>{text}</button>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
