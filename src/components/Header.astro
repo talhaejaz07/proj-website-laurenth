@@ -1,12 +1,16 @@
 ---
-import logoColored from "../assets/svgs/logo-colored.svg";
+import { Image } from "astro:assets";
+
+import logoColored from "../assets/images/logo/logo-colored.webp";
 import Hamburger from "../assets/svgs/hamburger.svg";
 import Cross from "../assets/svgs/cross.svg";
 ---
 
 <section>
   <header data-click="false">
-    <a class="logo" href="/"><img src={logoColored.src} alt="Logo" /></a>
+    <a class="logo" href="/">
+      <Image src={logoColored} alt="Logo" width="288" />
+    </a>
 
     <nav>
       <ul>
@@ -59,6 +63,7 @@ import Cross from "../assets/svgs/cross.svg";
 
   section {
     background-color: $light-000;
+    padding: $space-medium 0;
   }
 
   header {
