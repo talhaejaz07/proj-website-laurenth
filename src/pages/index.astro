@@ -4,13 +4,16 @@ import Layout from "../layouts/Layout.astro";
 import MainHeading from "../components/MainHeading.astro";
 import Button from "../components/Button.astro";
 
-import HeroImage from "../assets/images/hero-image.webp";
+import VideoImage from "../assets/images/videoImages/test-image.webp";
+import VideoPlaceholder from "../components/VideoPlaceholder.astro";
+import TestVideo from "../assets/videos/test-video.mp4";
+import { Icon } from "astro-icon";
 
 import Beratung from "../assets/svgs/beratung.svg";
 import Coaching from "../assets/svgs/coaching.svg";
 import Umsetzung from "../assets/svgs/umsetzung.svg";
 
-import VideoImage from "../assets/images/video-img.webp";
+import Videoimage from "../assets/images/video-img.webp";
 import CWS from "../assets/svgs/cws.svg";
 ---
 
@@ -22,9 +25,13 @@ import CWS from "../assets/svgs/cws.svg";
     buttonLink="#"
   />
 
-  <section class="hero">
-    <div class="image">
-      <img src={HeroImage.src} alt="hero image" />
+  <section id="videoOne" class="video-one" data-open="false">
+    <VideoPlaceholder bgImage={VideoImage} ID="one" />
+    <div class="video-one-popup">
+      <Icon name="ph:x-bold" id="crossOne" class="video-one-close" />
+      <video controls>
+        <source src={TestVideo} type="video/mp4" />
+      </video>
     </div>
   </section>
 
@@ -47,7 +54,7 @@ import CWS from "../assets/svgs/cws.svg";
     </h2>
     <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3>
 
-    <img class="video-image" src={VideoImage.src} alt="video-image" />
+    <img class="video-image" src={Videoimage.src} alt="video-image" />
 
     <div class="button">
       <Button href="#" text="Die Siegertreppe" />
@@ -83,53 +90,70 @@ import CWS from "../assets/svgs/cws.svg";
   </div>
 </Layout>
 
+<script>
+  // Video One
+  let videoOnePlayButton: any = document.getElementById("one");
+  let videoOneCrossButton: any = document.getElementById("crossOne");
+  let videoOneSection: any = document.getElementById("videoOne");
+
+  let videoOneClick = false;
+  let videoOneEvent = () => {
+    videoOneClick = !videoOneClick;
+
+    if (videoOneClick) {
+      videoOneSection.setAttribute("data-open", "true");
+    } else {
+      videoOneSection.setAttribute("data-open", "false");
+    }
+  };
+
+  videoOnePlayButton.addEventListener("click", videoOneEvent);
+  videoOneCrossButton.addEventListener("click", videoOneEvent);
+</script>
+
 <style lang="scss">
   @use "../abstractStyles/" as *;
 
-  .bg-circle {
-    height: 5853px;
-    width: 5853px;
-    background-color: $primary-200;
-    border-radius: 50%;
-
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    transform: translateX(-50%);
-
-    top: -4771px;
-  }
-
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding-top: 100px;
-  }
-
-  .wrapper {
+  .video-one {
     @include container();
+    padding: $space-60 0;
   }
 
-  h1 {
-    @include H1();
-    text-align: center;
-  }
-  .sub-heading {
-    @include H2();
-    text-align: center;
-    padding-bottom: 50px;
+  .video-one-popup {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba($black-900, 0.5);
+
+    display: grid;
+    place-items: center;
+
+    .video-one-close {
+      color: $light-000;
+      position: absolute;
+      z-index: 2000;
+      width: 75px;
+      top: 5%;
+      right: 5%;
+      cursor: pointer;
+    }
+
+    video {
+      @include container();
+      aspect-ratio: 16/9;
+    }
   }
 
-  .button {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 130px;
+  .video-one[data-open="true"] .video-one-popup {
+    transform: translateY(0%);
+    transition-property: transform;
+    transition-duration: 250ms;
   }
 
-  .image {
-    position: relative;
-
-    padding-bottom: 140px;
+  .video-one[data-open="false"] .video-one-popup {
+    transform: translateY(-100%);
+    transition-property: transform;
+    transition-duration: 250ms;
   }
 
   .icon-list {

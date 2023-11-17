@@ -1,0 +1,40 @@
+---
+const { bgImage, ID } = Astro.props;
+
+import { Image } from "astro:assets";
+
+import playButton from "../assets/images/videoImages/play-button.png";
+---
+
+<div class="wrapper">
+  <Image class="image" src={bgImage} alt="video image" />
+  <Image id={ID} class="play-button" src={playButton} alt="video image" />
+</div>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  .wrapper {
+    position: relative;
+  }
+
+  .image,
+  .play-button {
+    height: auto;
+  }
+
+  .play-button {
+    width: 250px;
+
+    @include for-phone-only {
+      width: 150px;
+    }
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+</style>
