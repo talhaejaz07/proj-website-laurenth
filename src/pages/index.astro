@@ -16,8 +16,7 @@ import Umsetzung from "../assets/images/icons/umsetzung.png";
 
 import Quote from "../components/Quote.astro";
 
-import Videoimage from "../assets/images/video-img.webp";
-import CWS from "../assets/svgs/cws.svg";
+import BookQuote from "../components/BookQuote.astro";
 ---
 
 <Layout title="Startseite">
@@ -79,41 +78,32 @@ import CWS from "../assets/svgs/cws.svg";
         <source src={TestVideo} type="video/mp4" />
       </video>
     </div>
+    <div class="video-two-button">
+      <Button href="/siegertreppe" text="Die Siegertreppe" />
+    </div>
   </section>
 
-  <section class="section-two">
-    <div class="button">
-      <Button href="#" text="Die Siegertreppe" />
-    </div>
+  <section class="sponsors">
+    <h2>Erfolgreiche Zusammenarbeit mit:</h2>
 
-    <p>Erfolgreiche Zusammenarbeit mit:</p>
-  </section>
-
-  <div class="sponsors">
-    <div class="sponsor-image-wrapper">
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-      <img src={CWS.src} alt="sponsor" />
-    </div>
-  </div>
-
-  <div class="book-quote">
-    <div class="book-quote-wrapper">
-      <h2 class="book-quote-heading">
-        Inspiration und Motivation mit Praxisbeispielen
-      </h2>
-      <h3 class="book-quote-subheading">
-        Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth –
-        Führung, Teamentwicklung und mehr.
-      </h3>
-      <div class="button">
-        <Button href="#" text="Bücher entdecken" />
+    <div class="sponsors-logos-list-wrapper">
+      <div class="sponsors-logos-list">
+        <Icon name="logos:atom" class="sponsor-logo" />
+        <Icon name="logos:auth0" class="sponsor-logo" />
+        <Icon name="logos:500px" class="sponsor-logo" />
+        <Icon name="logos:apple-pay" class="sponsor-logo" />
+        <Icon name="logos:android" class="sponsor-logo" />
+        <Icon name="logos:adyen" class="sponsor-logo" />
       </div>
     </div>
-  </div>
+  </section>
+
+  <BookQuote
+    heading="Inspiration und Motivation mit Praxisbeispielen"
+    text="Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth – Führung, Teamentwicklung und mehr."
+    buttonText="Bücher entdecken"
+    buttonLink="#"
+  />
 </Layout>
 
 <script>
@@ -237,10 +227,12 @@ import CWS from "../assets/svgs/cws.svg";
 
     h2 {
       @include H2();
+      text-align: center;
     }
 
     h3 {
       @include H3();
+      text-align: center;
     }
   }
 
@@ -285,69 +277,35 @@ import CWS from "../assets/svgs/cws.svg";
     transition-duration: 250ms;
   }
 
-  .section-two {
-    @include container();
-    padding-top: 200px;
-  }
-  .second-heading {
-    @include H1();
+  .video-two-button {
+    margin-top: $space-100;
     text-align: center;
-  }
-
-  .second-subheading {
-    @include H2();
-    text-align: center;
-    padding-bottom: 130px;
-  }
-
-  .video-image {
-    padding-bottom: 140px;
-  }
-  p {
-    @include P();
   }
 
   .sponsors {
-    background-color: $black-200;
-    padding-top: 75px;
-    padding-bottom: 75px;
+    padding: $space-60 0;
+    h2 {
+      @include container(0);
+      @include H2();
+      margin-bottom: $space-40;
+    }
 
-    .sponsor-image-wrapper {
+    .sponsors-logos-list-wrapper {
+      background-color: $black-200;
+    }
+
+    .sponsors-logos-list {
       @include container();
 
-      display: grid;
-      gap: $space-medium;
-      justify-items: center;
-      grid-template-columns: repeat(6, 1fr);
-
-      @include for-tablet-only {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      @include for-phone-only {
-        grid-template-columns: repeat(1, 1fr);
-      }
+      display: flex;
+      gap: $space-40;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
-  }
 
-  .book-quote {
-    margin-top: 200px;
-    background-color: $green-300;
-    padding-top: 100px;
-  }
-
-  .book-quote-wrapper {
-    @include container();
-  }
-
-  .book-quote-heading {
-    @include H1();
-    text-align: center;
-  }
-
-  .book-quote-subheading {
-    @include H3();
-    text-align: center;
-    padding-bottom: 70px;
+    .sponsor-logo {
+      min-width: 100px;
+      max-width: 200px;
+    }
   }
 </style>
