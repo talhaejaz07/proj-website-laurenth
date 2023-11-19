@@ -9,9 +9,12 @@ import VideoPlaceholder from "../components/VideoPlaceholder.astro";
 import TestVideo from "../assets/videos/test-video.mp4";
 import { Icon } from "astro-icon";
 
-import Beratung from "../assets/svgs/beratung.svg";
-import Coaching from "../assets/svgs/coaching.svg";
-import Umsetzung from "../assets/svgs/umsetzung.svg";
+import Image from "astro/components/Image.astro";
+import Beratung from "../assets/images/icons/beratung.png";
+import Coaching from "../assets/images/icons/coaching.png";
+import Umsetzung from "../assets/images/icons/umsetzung.png";
+
+import Quote from "../components/Quote.astro";
 
 import Videoimage from "../assets/images/video-img.webp";
 import CWS from "../assets/svgs/cws.svg";
@@ -22,7 +25,7 @@ import CWS from "../assets/svgs/cws.svg";
     heading="Gute Ziele inspirieren - Individuelle Lösungen für erfolgreiche Unternehmenskultur"
     subHeading="Unternehmensberatung & Coaching"
     buttonVisibility="true"
-    buttonLink="#"
+    buttonLink="/uber-uns"
   />
 
   <section id="videoOne" class="video-one" data-open="false">
@@ -35,24 +38,55 @@ import CWS from "../assets/svgs/cws.svg";
     </div>
   </section>
 
-  <div class="icon-list">
-    <img src={Beratung.src} alt="beratung" />
-    <img src={Coaching.src} alt="coaching" />
-    <img src={Umsetzung.src} alt="umsetzung" />
-  </div>
-  <div class="quote-heading-wrapper">
-    <h2 class="quote-heading">
-      „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
-      was niemand denkt.“
+  <section class="icons-with-button">
+    <div class="icon-list">
+      <div class="icon-wrapper">
+        <Image src={Beratung} alt="beratung" class="icon" />
+        <h3>Beratung</h3>
+      </div>
+      <div class="icon-wrapper">
+        <Image src={Coaching} alt="beratung" class="icon" />
+        <h3>Coaching</h3>
+      </div>
+      <div class="icon-wrapper">
+        <Image src={Umsetzung} alt="beratung" class="icon" />
+        <h3>Umsetzung</h3>
+      </div>
+    </div>
+    <div class="icons-button">
+      <Button href="/leistungen" text="Leistungen ansehen" />
+    </div>
+  </section>
+
+  <Quote
+    bgColor="#B55C78"
+    text="„Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken, was niemand denkt.“"
+  />
+
+  <section class="second-heading">
+    <h2>
+      Veränderungsprozesse erfolgreich gestalten – durch eine Verbindung von
+      persönlicher Interaktion und digitalen Möglichkeiten
     </h2>
-  </div>
+    <h3>Unser Konzept: die Siegertreppe</h3>
+  </section>
+
+  <section id="videoTwo" class="video-two" data-open="false">
+    <VideoPlaceholder bgImage={VideoImage} ID="two" />
+    <div class="video-two-popup">
+      <Icon name="ph:x-bold" id="crossTwo" class="video-two-close" />
+      <video controls>
+        <source src={TestVideo} type="video/mp4" />
+      </video>
+    </div>
+  </section>
 
   <section class="section-two">
-    <h2 class="second-heading">
+    <!-- <h2 class="second-heading">
       Veränderung sprozesse erfolgreich gestalten – durch eine Verbindung von
       persönlicher Interaktion und digitalen Möglichkeiten
     </h2>
-    <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3>
+    <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3> -->
 
     <img class="video-image" src={Videoimage.src} alt="video-image" />
 
@@ -109,6 +143,25 @@ import CWS from "../assets/svgs/cws.svg";
 
   videoOnePlayButton.addEventListener("click", videoOneEvent);
   videoOneCrossButton.addEventListener("click", videoOneEvent);
+
+  // Video Two
+  let videoTwoPlayButton: any = document.getElementById("two");
+  let videoTwoCrossButton: any = document.getElementById("crossTwo");
+  let videoTwoSection: any = document.getElementById("videoTwo");
+
+  let videoTwoClick = false;
+  let videoTwoEvent = () => {
+    videoTwoClick = !videoTwoClick;
+
+    if (videoTwoClick) {
+      videoTwoSection.setAttribute("data-open", "true");
+    } else {
+      videoTwoSection.setAttribute("data-open", "false");
+    }
+  };
+
+  videoTwoPlayButton.addEventListener("click", videoTwoEvent);
+  videoTwoCrossButton.addEventListener("click", videoTwoEvent);
 </script>
 
 <style lang="scss">
@@ -116,7 +169,6 @@ import CWS from "../assets/svgs/cws.svg";
 
   .video-one {
     @include container();
-    padding: $space-60 0;
   }
 
   .video-one-popup {
@@ -156,35 +208,89 @@ import CWS from "../assets/svgs/cws.svg";
     transition-duration: 250ms;
   }
 
-  .icon-list {
+  .icons-with-button {
     @include container();
+  }
+  .icon-list {
+    padding: 0 $space-60;
 
     display: flex;
-    gap: $space-medium;
-    justify-content: space-around;
-    padding-bottom: 120px;
+    gap: 11%;
 
-    img {
-      @include for-tablet-only {
-        width: 120px;
-      }
-    }
-
-    @include for-phone-only {
+    .icon-wrapper {
+      width: 26%;
+      display: flex;
       flex-direction: column;
-      width: 180px;
+      gap: $space-medium;
+      align-items: center;
+    }
+    .icon {
+      height: auto;
+      width: 100%;
+      max-width: 200px;
+    }
+    h3 {
+      @include H3();
+      text-align: center;
     }
   }
 
-  .quote-heading-wrapper {
-    background-color: $red-400;
-  }
-  .quote-heading {
-    @include container();
-    @include H1($light-000);
+  .icons-button {
     text-align: center;
-    padding-top: 75px;
-    padding-bottom: 75px;
+    margin-top: $space-40;
+  }
+
+  .second-heading {
+    @include container();
+
+    h2 {
+      @include H2();
+    }
+
+    h3 {
+      @include H3();
+    }
+  }
+
+  .video-two {
+    @include container();
+  }
+
+  .video-two-popup {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba($black-900, 0.5);
+
+    display: grid;
+    place-items: center;
+
+    .video-two-close {
+      color: $light-000;
+      position: absolute;
+      z-index: 2000;
+      width: 75px;
+      top: 5%;
+      right: 5%;
+      cursor: pointer;
+    }
+
+    video {
+      @include container();
+      aspect-ratio: 16/9;
+    }
+  }
+
+  .video-two[data-open="true"] .video-two-popup {
+    transform: translateY(0%);
+    transition-property: transform;
+    transition-duration: 250ms;
+  }
+
+  .video-two[data-open="false"] .video-two-popup {
+    transform: translateY(-100%);
+    transition-property: transform;
+    transition-duration: 250ms;
   }
 
   .section-two {

@@ -1,0 +1,21 @@
+---
+const { bgColor, text, color = "#fff" } = Astro.props;
+---
+
+<section style=`background-color:${bgColor};`>
+  <h2 style=`color:${color};`>{text}</h2>
+</section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    margin: $space-60 0;
+  }
+
+  h2 {
+    @include container();
+    @include H1();
+    text-align: center;
+  }
+</style>

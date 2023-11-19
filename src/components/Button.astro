@@ -2,15 +2,16 @@
 const { href, text } = Astro.props;
 ---
 
-<button href={href}>{text}</button>
+<a class="button" href={href}>{text}</a>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
 
-  button {
+  .button {
     font-family: $text-font;
     font-size: 22px;
     line-height: 1.4;
+    text-decoration: none;
     color: white;
     background-color: $primary-500;
 
@@ -25,7 +26,7 @@ const { href, text } = Astro.props;
     cursor: pointer;
   }
 
-  button:hover {
+  .button:hover {
     scale: 1.005;
     background-color: $primary-400;
   }
