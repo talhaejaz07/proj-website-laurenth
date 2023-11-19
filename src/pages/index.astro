@@ -82,14 +82,6 @@ import CWS from "../assets/svgs/cws.svg";
   </section>
 
   <section class="section-two">
-    <!-- <h2 class="second-heading">
-      Veränderung sprozesse erfolgreich gestalten – durch eine Verbindung von
-      persönlicher Interaktion und digitalen Möglichkeiten
-    </h2>
-    <h3 class="second-subheading">Unser Konzept: die Siegertreppe</h3> -->
-
-    <img class="video-image" src={Videoimage.src} alt="video-image" />
-
     <div class="button">
       <Button href="#" text="Die Siegertreppe" />
     </div>
@@ -191,7 +183,7 @@ import CWS from "../assets/svgs/cws.svg";
     }
 
     video {
-      @include container();
+      @include container(0);
       aspect-ratio: 16/9;
     }
   }
@@ -276,7 +268,7 @@ import CWS from "../assets/svgs/cws.svg";
     }
 
     video {
-      @include container();
+      @include container(0);
       aspect-ratio: 16/9;
     }
   }
