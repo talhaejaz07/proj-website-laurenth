@@ -1,78 +1,61 @@
 ---
-import logoWhite from "../assets/svgs/logo-white.svg";
+import { Image } from "astro:assets";
+import logoWhite from "../assets/images/logo/logo-white.webp";
 
-import Button from "./Button.astro";
-
-import Fb from "../assets/svgs/fb.svg";
-import xing from "../assets/svgs/xing.svg";
-import linkdin from "../assets/svgs/linkdin.svg";
+import { Icon } from "astro-icon";
 ---
 
 <section>
-  <div class="bg-circle"></div>
   <footer>
-    <div class="pre-footer">
-      <h2>Möchten Sie uns kennenlernen?</h2>
-      <h3>
-        Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!
-      </h3>
-      <div class="button">
-        <Button href="#" text="Kostenloses Beratungsgespräch Anfragen" />
-      </div>
+    <div class="logo-nav">
+      <a href="/">
+        <Image src={logoWhite} alt="logo-white" class="logo" />
+      </a>
+
+      <ul>
+        <li>
+          <a class="nav-link" href="/uber-uns">Über uns</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/leistungen">Leistungen</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/siegertreppe">Siegertreppe</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/app">App</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/kontakt">Kontakt</a>
+        </li>
+      </ul>
     </div>
+    <div class="mini-nav">
+      <ul>
+        <li>
+          <a class="nav-link" href="#">Datenschutz</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">Impressum</a>
+        </li>
+      </ul>
+    </div>
+    <div class="social">
+      <Icon name="ri:xing-fill" class="social-logo" />
+      <Icon name="ri:linkedin-box-fill" class="social-logo" />
+      <Icon name="ri:facebook-box-fill" class="social-logo" />
+    </div>
+    <div class="contact">
+      <p>
+        <b>Kontaktieren Sie uns</b>
+      </p>
+      <p>Schnetzen 1/1 88276 Berg</p>
 
-    <div class="main-footer">
-      <div class="footer-wrapper">
-        <div class="column logo">
-          <a href="/"><img src={logoWhite.src} alt="logo white" /></a>
-          <ul>
-            <li>
-              <a class="nav-link" href="/uber-uns">Über uns</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/leistungen">Leistungen</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/siegertreppe">Siegertreppe</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/blog">Blog</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/app">App</a>
-            </li>
-            <li>
-              <a class="nav-link" href="/kontakt">Kontakt</a>
-            </li>
-          </ul>
-        </div>
-        <div class="column second-links">
-          <ul>
-            <li>
-              <a class="nav-link" href="#">Datenschutz</a>
-            </li>
-            <li>
-              <a class="nav-link" href="#">Impressum</a>
-            </li>
-          </ul>
-        </div>
-        <div class="column icons">
-          <div class="icon-wrapper">
-            <img src={Fb.src} alt="facebook" />
-            <img src={xing.src} alt="xing" />
-            <img src={linkdin.src} alt="linkdin" />
-          </div>
-        </div>
-        <div class="column contact">
-          <p>
-            <b>Kontaktieren Sie uns</b>
-          </p>
-          <p>Schnetzen 1/1 88276 Berg</p>
-
-          <p><b>Rufen Sie uns an</b></p>
-          <p>07504 971 82 42</p>
-        </div>
-      </div>
+      <p><b>Rufen Sie uns an</b></p>
+      <p>07504 971 82 42</p>
     </div>
   </footer>
 </section>
@@ -81,118 +64,86 @@ import linkdin from "../assets/svgs/linkdin.svg";
   @use "../abstractStyles/" as *;
 
   section {
-    position: relative;
-
-    overflow: hidden;
-
-    margin-top: 80px;
-  }
-
-  .bg-circle {
-    height: 5853px;
-    width: 5853px;
-    background-color: $primary-200;
-    border-radius: 50%;
-
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    // bottom: -4800px;
-  }
-
-  .pre-footer {
-    @include container();
-    margin-top: 70px;
-
-    h2 {
-      @include H1();
-      text-align: center;
-    }
-
-    h3 {
-      @include H3();
-      text-align: center;
-      padding-bottom: 65px;
-    }
-
-    .button {
-      display: flex;
-      justify-content: center;
-      padding-bottom: 150px;
-    }
-  }
-
-  .main-footer {
     background-color: $primary-500;
-    padding-top: 100px;
-    padding-bottom: 120px;
   }
 
-  .footer-wrapper {
+  footer {
     @include container();
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    @include for-phone-only {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 40%;
+
+    @include for-smaller-than-desktop {
       grid-template-columns: 1fr;
+
       gap: $space-medium;
     }
   }
 
-  .logo {
-    @include for-phone-only {
-      text-align: center;
-    }
-  }
-
-  .nav-link {
-    @include Nav($light-000);
-  }
-
-  li {
-    list-style: none;
-    padding-bottom: 12px;
-
-    @include for-phone-only {
-      text-align: center;
-    }
-  }
-
-  .second-links {
+  .logo-nav {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    gap: $space-40;
+
+    .logo {
+      width: 100%;
+      height: auto;
+    }
 
     ul {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: $space-medium;
+
+      @include for-smaller-than-desktop {
+        align-items: center;
+      }
     }
 
     li {
-      @include for-phone-only {
-        text-align: center;
-      }
+      list-style: none;
+    }
+
+    .nav-link {
+      @include Nav($light-000);
+      text-decoration: none;
     }
   }
 
-  .icons {
+  .mini-nav {
     display: flex;
     align-items: flex-end;
-  }
-
-  .icon-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
 
     @include for-smaller-than-desktop {
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+    }
 
-      gap: $space-large;
-      img {
-        width: 55px;
-      }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: $space-medium;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .nav-link {
+      @include Nav($light-000);
+      text-decoration: none;
+    }
+  }
+
+  .social {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .social-logo {
+      max-width: 80px;
+      min-width: 55px;
+      color: $light-000;
     }
   }
 
@@ -200,14 +151,12 @@ import linkdin from "../assets/svgs/linkdin.svg";
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
 
-    @include for-phone-only {
-      text-align: center;
+    gap: $space-medium;
+
+    p {
+      @include P($light-000);
     }
-  }
-
-  p {
-    @include Nav($light-000);
-    padding-bottom: 30px;
   }
 </style>
