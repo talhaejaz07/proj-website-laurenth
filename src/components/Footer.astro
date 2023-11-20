@@ -44,9 +44,15 @@ import { Icon } from "astro-icon";
       </ul>
     </div>
     <div class="social">
-      <Icon name="ri:xing-fill" class="social-logo" />
-      <Icon name="ri:linkedin-box-fill" class="social-logo" />
-      <Icon name="ri:facebook-box-fill" class="social-logo" />
+      <a href="https://www.xing.com/" target="_blank">
+        <Icon name="ri:xing-fill" class="social-logo" />
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank">
+        <Icon name="ri:linkedin-box-fill" class="social-logo" />
+      </a>
+      <a href="https://www.facebook.com/" target="_blank">
+        <Icon name="ri:facebook-box-fill" class="social-logo" />
+      </a>
     </div>
     <div class="contact">
       <p>
@@ -141,9 +147,9 @@ import { Icon } from "astro-icon";
     flex-wrap: wrap;
 
     .social-logo {
-      max-width: 80px;
-      min-width: 55px;
       color: $light-000;
+      width: 60px;
+      height: auto;
     }
   }
 
@@ -152,9 +158,12 @@ import { Icon } from "astro-icon";
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-
     gap: $space-medium;
 
+    @include for-desktop-only {
+      border-left: 1px solid $light-000;
+      margin-left: $space-80;
+    }
     p {
       @include P($light-000);
     }
