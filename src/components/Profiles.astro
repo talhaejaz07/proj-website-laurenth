@@ -1,1 +1,21 @@
-<section>Hello!!!</section>
+---
+const profiles = await Astro.glob("../content/*.md");
+
+const pics = await import.meta.glob("../assets/images/profiles/*");
+---
+
+<section>
+  {
+    profiles.map((profile, index) => (
+      <>
+        <p>profile.</p>
+        <h1>{profile.frontmatter.name}</h1>
+        <div>
+          {profile.frontmatter.tags.map((tag) => (
+            <p>{tag}</p>
+          ))}
+        </div>
+      </>
+    ))
+  }
+</section>
