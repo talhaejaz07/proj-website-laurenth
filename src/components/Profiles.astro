@@ -1,35 +1,21 @@
 ---
-import { Image } from "astro:assets";
-const profiles = await Astro.glob("../content/profiles/*.mdx");
+const profiles = await Astro.glob("../content/*.md");
 
-// profiles.map((profile) => console.log(profile.pic));
+const pics = await import.meta.glob("../assets/images/profiles/*");
 ---
 
 <section>
   {
-    profiles.map((profile) => (
+    profiles.map((profile, index) => (
       <>
-        <Image src={profile.pic} alt="profile pic" />
+        <p>profile.</p>
         <h1>{profile.frontmatter.name}</h1>
         <div>
           {profile.frontmatter.tags.map((tag) => (
             <p>{tag}</p>
           ))}
         </div>
-        <div>
-          <p>{profile.description}</p>
-        </div>
       </>
     ))
   }
-  <!-- {
-    profiles.map((profile) => {
-      <>
-        <h1>Hello</h1>
-        <h1>{profile.frontmatter.name}</h1>
-        <h1>{profile.pic}</h1>
-        <img src={profile.pic.src} alt="profile pic" />
-      </>;
-    })
-  } -->
 </section>
