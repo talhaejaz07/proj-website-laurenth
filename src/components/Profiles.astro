@@ -1,21 +1,35 @@
 ---
-const profiles = await Astro.glob("../content/*.md");
+import { getCollection } from "astro:content";
+const profileEntries = await getCollection("profiles");
 
-const pics = await import.meta.glob("../assets/images/profiles/*");
+import Image from "astro/components/Image.astro";
 ---
 
 <section>
   {
-    profiles.map((profile, index) => (
-      <>
-        <p>profile.</p>
-        <h1>{profile.frontmatter.name}</h1>
-        <div>
-          {profile.frontmatter.tags.map((tag) => (
-            <p>{tag}</p>
+    profileEntries.map((profile) => (
+      <div class="profile">
+        <Image
+          class="profile-image"
+          src={profile.data.image}
+          alt="profile image"
+        />
+        <h3 class="name">{profile.data.name}</h3>
+        <ul>
+          {profile.data.tags.map((tag) => (
+            <li>{tag}</li>
           ))}
-        </div>
-      </>
+        </ul>
+        <p class="intro">{profile.body}</p>
+      </div>
     ))
   }
 </section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    @include container();
+  }
+</style>
