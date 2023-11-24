@@ -3,24 +3,34 @@ import { getCollection } from "astro:content";
 const profileEntries = await getCollection("profiles");
 
 import Image from "astro/components/Image.astro";
+
+import { stepColors } from "../data/tabsData.js";
 ---
 
 <section>
   {
-    profileEntries.map((profile) => (
+    profileEntries.map((profile, index) => (
       <div class="profile">
-        <Image
-          class="profile-image"
-          src={profile.data.image}
-          alt="profile image"
-        />
-        <h3 class="name">{profile.data.name}</h3>
+        <div class="image-and-decsription">
+          <Image
+            class="profile-image"
+            src={profile.data.image}
+            alt="profile image"
+            width={600}
+          />
+          <div
+            class="intro"
+            style={`background-color: ${stepColors[index + 1]}`}
+          >
+            <p>{profile.body}</p>
+          </div>
+        </div>
         <ul>
           {profile.data.tags.map((tag) => (
             <li>{tag}</li>
           ))}
         </ul>
-        <p class="intro">{profile.body}</p>
+        <h3 class="name">{profile.data.name}</h3>
       </div>
     ))
   }
@@ -31,5 +41,73 @@ import Image from "astro/components/Image.astro";
 
   section {
     @include container();
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: $space-60;
+  }
+
+  .profile {
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-30;
+  }
+
+  .image-and-decsription {
+    position: relative;
+  }
+
+  .profile-image {
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .intro {
+    position: absolute;
+    bottom: 0;
+
+    padding: $space-80 $space-60 $space-60 $space-60;
+
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition-property: opacity transform;
+    transition-duration: 250ms;
+
+    p {
+      @include P($light-000);
+      pointer-events: none;
+    }
+  }
+
+  .image-and-decsription:hover .intro {
+    opacity: 1;
+    transform: scaleY(100%);
+    transition-property: opacity transform;
+    transition-duration: 250ms;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-medium;
+
+    li {
+      list-style: none;
+      @include Nav();
+      background-color: $light-200;
+      padding: 5px 20px;
+      border-radius: 10px;
+      border: 1px solid $black-250;
+    }
+  }
+
+  h3 {
+    @include H2();
   }
 </style>

@@ -1,5 +1,5 @@
 ---
-image: ../../assets/images/profiles/profile-01.webp
+image: ../../assets/images/profiles/profile-01.png
 name: Jörg Lauenroth
 tags: ["Beratung", "Coaching"]
 ---

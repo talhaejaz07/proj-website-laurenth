@@ -3,16 +3,20 @@ import Layout from "../layouts/Layout.astro";
 
 import MainHeading from "../components/MainHeading.astro";
 import Profiles from "../components/Profiles.astro";
+import Quote from "../components/Quote.astro";
 
-import ProfilePic01 from "../assets/images/profiles/profile-01.webp";
-import ProfilePic02 from "../assets/images/profiles/profile-02.webp";
+import Image from "astro/components/Image.astro";
+import Button from "../components/Button.astro";
+import About01 from "../assets/images/about/about-01.webp";
+import About02 from "../assets/images/about/about-02.webp";
 
-import About01 from "../assets/images/about-01.webp";
-import About02 from "../assets/images/about-02.webp";
+import Banner from "../assets/images/about/banner.webp";
 
-import Banner from "../assets/images/banner.webp";
+import Testimonials from "../components/Testimonials.astro";
 
 import TestimonialPic01 from "../assets/images/testimonial-01.webp";
+
+import Prefooter from "../components/prefooter.astro";
 ---
 
 <Layout title="Über uns">
@@ -22,74 +26,44 @@ import TestimonialPic01 from "../assets/images/testimonial-01.webp";
   />
 
   <Profiles />
-  <section class="profiles">
-    <div class="profile">
-      <img class="profile-pic" src={ProfilePic01.src} alt="profile pic" />
-      <div class="tags">
-        <p>Beratung</p>
-        <p>Coaching</p>
-      </div>
-      <h3 class="name">Jörg Lauenroth</h3>
-    </div>
 
-    <div class="profile">
-      <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
-      <div class="tags">
-        <p>Beratung</p>
-        <p>Coaching</p>
-      </div>
-      <h3 class="name">Jörg Lauenroth</h3>
-    </div>
-
-    <div class="profile">
-      <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
-      <div class="tags">
-        <p>Beratung</p>
-        <p>Coaching</p>
-      </div>
-      <h3 class="name">Jörg Lauenroth</h3>
-    </div>
-
-    <div class="profile">
-      <img class="profile-pic" src={ProfilePic02.src} alt="profile pic" />
-      <div class="tags">
-        <p>Beratung</p>
-        <p>Coaching</p>
-      </div>
-      <h3 class="name">Jörg Lauenroth</h3>
-    </div>
-  </section>
-
-  <div class="quote-heading">
-    <div>
-      <h2>
-        „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
-        was niemand denkt.“
-      </h2>
-    </div>
-  </div>
+  <Quote
+    bgColor="#007BA4"
+    text="„Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken, was niemand denkt.“"
+  />
 
   <section class="about">
     <h2>Über uns</h2>
     <div class="wrapper">
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd.
-      </p>
-      <img src={About01.src} alt="about pic" />
-      <img src={About02.src} alt="about pic" />
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd.
-      </p>
+      <div class="sub-section-one">
+        <div class="sub-section-text">
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd.
+          </p>
+          <Button href="/leistungen" text="Leistungen ansehen" />
+        </div>
+        <Image src={About01} alt="about pic" />
+      </div>
+      <div class="sub-section-two">
+        <div class="sub-section-text">
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd.
+          </p>
+        </div>
+        <Image src={About02} alt="about pic" />
+      </div>
     </div>
   </section>
 
-  <img class="banner" src={Banner.src} alt="banner" />
+  <Image class="banner" src={Banner} alt="banner" />
+
+  <Testimonials />
 
   <section class="testimonials">
     <h2>Testimonials</h2>
@@ -120,83 +94,67 @@ import TestimonialPic01 from "../assets/images/testimonial-01.webp";
       </div>
     </div>
   </section>
+
+  <Prefooter
+    heading="Möchten Sie uns kennenlernen?"
+    subHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
+  />
 </Layout>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
 
-  .profiles {
-    @include container();
-    padding-top: 75px;
-    padding-bottom: 75px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-  }
-
-  .profile {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .tags {
-    display: flex;
-    gap: 20px;
-
-    p {
-      @include Nav();
-      background-color: $light-200;
-      padding: 5px 20px;
-      border-radius: 10px;
-      border: 1px solid $black-250;
-    }
-  }
-
-  .name {
-    @include H2();
-  }
-
-  .quote-heading {
-    padding-top: 110px;
-    padding-bottom: 110px;
-    background-color: $primary-500;
-
-    div {
-      @include container();
-    }
-
-    h2 {
-      @include H1($light-000);
-      text-align: center;
-    }
-  }
-
   .about {
     @include container();
-    padding-top: 130px;
-    padding-bottom: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: $space-60;
 
     h2 {
       @include H1();
       text-align: center;
-      padding-bottom: 80px;
     }
 
     .wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: $space-60;
+    }
 
-      p {
-        @include P();
+    .sub-section-two {
+      flex-direction: row-reverse;
+    }
+
+    .sub-section-one,
+    .sub-section-two {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: $space-60;
+
+      img {
+        max-width: 540px;
+        width: 100%;
+        height: auto;
+      }
+
+      .sub-section-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-60;
+        max-width: 540px;
+
+        p {
+          @include P();
+        }
       }
     }
   }
 
   .banner {
     width: 100%;
+    height: auto;
   }
 
   .testimonials {

@@ -1,5 +1,5 @@
 ---
-image: ../../assets/images/profiles/profile-02.webp
+image: ../../assets/images/profiles/profile-04.png
 name: Robert Moosmann
 tags: ["Fitness"]
 ---

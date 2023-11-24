@@ -1,5 +1,5 @@
 ---
-image: ../../assets/images/profiles/profile-02.webp
+image: ../../assets/images/profiles/profile-02.png
 name: Daniela Lauenroth
 tags: ["Projektmanagement", "Kontakt"]
 ---
