@@ -15,11 +15,13 @@ import Banner from "../assets/images/about/banner.webp";
 import Testimonials from "../components/Testimonials.astro";
 
 import TestimonialPic01 from "../assets/images/testimonial-01.webp";
-
-import Prefooter from "../components/prefooter.astro";
 ---
 
-<Layout title="Über uns">
+<Layout
+  title="Über uns"
+  footerHeading="Möchten Sie uns kennenlernen?"
+  footerSubHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
+>
   <MainHeading
     heading="Wir unterstützen Menschen und Unternehmen dabei, noch erfolgreicher zu werden"
     subHeading="Das ist unser Antrieb bei allem, was wir tun"
@@ -94,11 +96,6 @@ import Prefooter from "../components/prefooter.astro";
       </div>
     </div>
   </section>
-
-  <Prefooter
-    heading="Möchten Sie uns kennenlernen?"
-    subHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
-  />
 </Layout>
 
 <style lang="scss">

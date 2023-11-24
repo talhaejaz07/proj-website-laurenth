@@ -17,11 +17,13 @@ import Umsetzung from "../assets/images/icons/umsetzung.png";
 import Quote from "../components/Quote.astro";
 
 import BookQuote from "../components/BookQuote.astro";
-
-import PreFooter from "../components/PreFooter.astro";
 ---
 
-<Layout title="Startseite">
+<Layout
+  title="Startseite"
+  footerHeading="Möchten Sie uns kennenlernen?"
+  footerSubHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
+>
   <MainHeading
     heading="Gute Ziele inspirieren - Individuelle Lösungen für erfolgreiche Unternehmenskultur"
     subHeading="Unternehmensberatung & Coaching"
@@ -105,11 +107,6 @@ import PreFooter from "../components/PreFooter.astro";
     text="Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth – Führung, Teamentwicklung und mehr."
     buttonText="Bücher entdecken"
     buttonLink="/uber-uns"
-  />
-
-  <PreFooter
-    heading="Möchten Sie uns kennenlernen?"
-    subHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
   />
 </Layout>
 

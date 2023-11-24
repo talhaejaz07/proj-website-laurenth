@@ -1,9 +1,27 @@
 ---
+const {
+  footerHeading,
+  footerSubHeading,
+  FooterButtonVisibility = true,
+  FooterButtonText = "Kostenloses Beratungsgespräch anfragen",
+  FooterButtonLink = "/kontakt",
+} = Astro.props;
+
+import Prefooter from "./prefooter.astro";
+
 import { Image } from "astro:assets";
 import logoWhite from "../assets/images/logo/logo-white.webp";
 
 import { Icon } from "astro-icon";
 ---
+
+<Prefooter
+  heading={footerHeading}
+  subHeading={footerSubHeading}
+  buttonVisibility={FooterButtonVisibility}
+  buttonText={FooterButtonText}
+  buttonLink={FooterButtonLink}
+/>
 
 <section>
   <footer>
