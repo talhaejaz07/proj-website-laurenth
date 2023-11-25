@@ -10,6 +10,17 @@ const profilesCollection = defineCollection({
     }),
 });
 
+const testimonialsCollection = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      image: image(),
+      name: z.string(),
+      position: z.string(),
+    }),
+});
+
 export const collections = {
   profiles: profilesCollection,
+  testimonials: testimonialsCollection,
 };

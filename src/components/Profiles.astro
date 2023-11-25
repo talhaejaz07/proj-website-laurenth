@@ -20,7 +20,9 @@ import { stepColors } from "../data/tabsData.js";
           />
           <div
             class="intro"
-            style={`background-color: ${stepColors[index + 1]}`}
+            style={`background-color: ${
+              stepColors[(index + 1) % Object.keys(stepColors).length]
+            }`}
           >
             <p>{profile.body}</p>
           </div>

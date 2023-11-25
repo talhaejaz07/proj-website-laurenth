@@ -1,1 +1,332 @@
-<section>Hello!!!</section>
+---
+import { getCollection } from "astro:content";
+const testimonialEntries = await getCollection("testimonials");
+
+import Image from "astro/components/Image.astro";
+
+import { stepColors } from "../data/tabsData.js";
+
+import { Icon } from "astro-icon";
+---
+
+<section id="testimonialSection">
+  <h2>Testimonials</h2>
+  <div id="testimonialSlider" class="slider" data-position="1">
+    <Icon
+      id="leftButton"
+      name="mdi:arrow-left-thin-circle-outline"
+      class="left"
+    />
+    <Icon
+      id="rightButton"
+      name="mdi:arrow-right-thin-circle-outline"
+      class="right"
+    />
+    <div class="wrapper">
+      <div class="testimonials">
+        {
+          testimonialEntries.map((testimonial, index) => (
+            <div
+              style={`background-color: ${
+                stepColors[(index + 1) % Object.keys(stepColors).length]
+              }`}
+              class="testimonial"
+            >
+              <Image
+                src={testimonial.data.image}
+                alt="testimonial image"
+                width={150}
+              />
+              <h3>{testimonial.data.name}</h3>
+              <h4>{testimonial.data.position}</h4>
+              <p>{testimonial.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Slider Position
+
+  let sliderPosition = 0;
+
+  let leftButton: any = document.getElementById("leftButton");
+  let rightButton: any = document.getElementById("rightButton");
+
+  let testimonialSlider: any = document.getElementById("testimonialSlider");
+
+  let testimonials: any = document.getElementsByClassName("testimonial");
+
+  let leftButtonEvent = () => {
+    sliderPosition = --sliderPosition;
+
+    if (sliderPosition < 1) {
+      sliderPosition = 1;
+    }
+
+    testimonialSlider.setAttribute("data-position", `${sliderPosition}`);
+  };
+
+  let rightButtonEvent = () => {
+    sliderPosition = ++sliderPosition;
+
+    if (sliderPosition > testimonials.length) {
+      sliderPosition = testimonials.length;
+    }
+
+    testimonialSlider.setAttribute("data-position", `${sliderPosition}`);
+  };
+
+  leftButton.addEventListener("click", leftButtonEvent);
+  rightButton.addEventListener("click", rightButtonEvent);
+</script>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    @include container();
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-60;
+
+    h2 {
+      @include H2();
+    }
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+
+    overflow: hidden;
+  }
+
+  .left,
+  .right {
+    position: absolute;
+    width: 70px;
+
+    @include for-phone-only {
+      width: 35px;
+    }
+    color: $primary-500;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    z-index: 2;
+  }
+
+  .left {
+    left: 0;
+  }
+
+  .right {
+    right: 0;
+  }
+
+  .wrapper {
+    margin: 0 75px;
+
+    @include for-phone-only {
+      margin: 0 36px;
+    }
+  }
+
+  .testimonials {
+    position: relative;
+
+    height: 750px;
+
+    width: 100%;
+
+    overflow: hidden;
+  }
+
+  .testimonial {
+    position: absolute;
+
+    padding: $space-60 $space-30 $space-40 $space-30;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 47.62%;
+
+    top: 50%;
+    left: 0;
+
+    transition-property: transform;
+    transition-duration: 150ms;
+  }
+
+  @media (width <= 1350px) {
+    .testimonial {
+      width: 100%;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  h3 {
+    @include H2($light-000);
+    text-align: center;
+  }
+
+  h4 {
+    @include P($light-000);
+    font-style: italic;
+    padding-bottom: $space-30;
+    text-align: center;
+  }
+
+  p {
+    @include P($light-000);
+    text-align: center;
+  }
+
+  @media (width > 1350px) {
+    .slider[data-position="1"] .testimonial:nth-child(1) {
+      transform: translate(0%, -50%);
+      transition-property: transform;
+      transition-duration: 150ms;
+    }
+
+    .slider[data-position="1"] .testimonial:nth-child(2) {
+      transform: translate(110%, -50%);
+    }
+
+    .slider[data-position="1"] .testimonial:nth-child(3) {
+      transform: translate(220%, -50%);
+    }
+
+    .slider[data-position="1"] .testimonial:nth-child(4) {
+      transform: translate(330%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(1) {
+      transform: translate(-110%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(2) {
+      transform: translate(0%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(3) {
+      transform: translate(110%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(4) {
+      transform: translate(220%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(1) {
+      transform: translate(-220%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(2) {
+      transform: translate(-110%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(3) {
+      transform: translate(0%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(4) {
+      transform: translate(110%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(1) {
+      transform: translate(-330%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(2) {
+      transform: translate(-220%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(3) {
+      transform: translate(-110%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(4) {
+      transform: translate(0%, -50%);
+    }
+  }
+
+  @media (width <= 1350px) {
+    .slider[data-position="1"] .testimonial:nth-child(1) {
+      transform: translate(0%, -50%);
+      transition-property: transform;
+      transition-duration: 150ms;
+    }
+
+    .slider[data-position="1"] .testimonial:nth-child(2) {
+      transform: translate(100%, -50%);
+    }
+
+    .slider[data-position="1"] .testimonial:nth-child(3) {
+      transform: translate(200%, -50%);
+    }
+
+    .slider[data-position="1"] .testimonial:nth-child(4) {
+      transform: translate(300%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(1) {
+      transform: translate(-100%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(2) {
+      transform: translate(0%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(3) {
+      transform: translate(100%, -50%);
+    }
+
+    .slider[data-position="2"] .testimonial:nth-child(4) {
+      transform: translate(200%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(1) {
+      transform: translate(-200%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(2) {
+      transform: translate(-100%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(3) {
+      transform: translate(0%, -50%);
+    }
+
+    .slider[data-position="3"] .testimonial:nth-child(4) {
+      transform: translate(100%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(1) {
+      transform: translate(-300%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(2) {
+      transform: translate(-200%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(3) {
+      transform: translate(-100%, -50%);
+    }
+
+    .slider[data-position="4"] .testimonial:nth-child(4) {
+      transform: translate(0%, -50%);
+    }
+  }
+</style>
