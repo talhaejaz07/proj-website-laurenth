@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+const stepEntries = await getCollection("steps");
+
+import { colors } from "../data/varianceControl.js";
+---
+
+<section>
+  <div class="section-wrapper">
+    <h2>Siegertreppe</h2>
+    <p>
+      Sieben Schritte, die sowohl analoge als auch digitale Elemente beinhalten.
+      Sieben Schritte, die Umsetzungserfolg garantieren.
+    </p>
+    <div class="tabs-wrapper">
+      <div
+        class="tabs"
+        style={`grid-template-columns: repeat(${stepEntries.length}, 1fr);`}
+      >
+        {
+          stepEntries.map((step, index) => (
+            <button
+              style={`background-color: ${colors[index + 1]}; grid-row: ${
+                stepEntries.length + 1 - step.data.key
+              }/${stepEntries.length + 3 - step.data.key}; grid-column: ${
+                step.data.key
+              }/${step.data.key + 1};`}
+            >
+              {step.data.key}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    margin: $space-60 0;
+    background-color: $primary-200;
+  }
+
+  .section-wrapper {
+    @include container();
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-40;
+
+    h2 {
+      @include H1();
+      text-align: center;
+    }
+
+    p {
+      @include P();
+      text-align: center;
+    }
+  }
+
+  .tabs {
+    background-color: $light-000;
+    padding: $space-60;
+
+    display: grid;
+    gap: $space-tiny;
+
+    button {
+      @include H2($light-000);
+      border: 0px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+  }
+</style>

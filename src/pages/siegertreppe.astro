@@ -3,16 +3,48 @@ import Layout from "../layouts/Layout.astro";
 
 import MainHeading from "../components/MainHeading.astro";
 
+import VideoImage from "../assets/images/videoImages/test-image.webp";
+import VideoPlaceholder from "../components/VideoPlaceholder.astro";
+import TestVideo from "../assets/videos/test-video.mp4";
+import { Icon } from "astro-icon";
+
+import Stairs from "../components/Stairs.astro";
+
 import MainImage from "../assets/images/video-img.webp";
 
 import Tabs from "../components/Tabs.astro";
 ---
 
-<Layout title="Siegertreppe">
+<Layout
+  title="Siegertreppe"
+  footerHeading="Möchten Sie uns kennenlernen?"
+  footerSubHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
+>
   <MainHeading
     heading="Veränderungsprozesse erfolgreich gestalten – durch eine Verbindung von persönlicher Interaktion und digitalen Möglichkeiten"
     subHeading="Unser Konzept: die Siegertreppe"
   />
+
+  <section id="videoOne" class="video-one" data-open="false">
+    <VideoPlaceholder bgImage={VideoImage} ID="one" />
+    <div class="video-one-popup">
+      <Icon name="ph:x-bold" id="crossOne" class="video-one-close" />
+      <video controls>
+        <source src={TestVideo} type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <section class="paragraph">
+    <p>
+      Wir helfen, das volle Potenzial Ihres Unternehmens auszuschöpfen. Wir
+      bieten maßgeschneiderte Lösungen, die auf Ihre individuellen Bedürfnisse
+      zugeschnitten sind, und begleiten Sie auf jedem Schritt Ihres
+      Erfolgspfades.
+    </p>
+  </section>
+
+  <Stairs />
 
   <section class="image">
     <img src={MainImage.src} alt="video image" />
@@ -46,8 +78,81 @@ import Tabs from "../components/Tabs.astro";
     </div>
   </div>
 </Layout>
+
+<script>
+  let videoOnePlayButton: any = document.getElementById("one");
+  let videoOneCrossButton: any = document.getElementById("crossOne");
+  let videoOneSection: any = document.getElementById("videoOne");
+
+  let videoOneClick = false;
+  let videoOneEvent = () => {
+    videoOneClick = !videoOneClick;
+
+    if (videoOneClick) {
+      videoOneSection.setAttribute("data-open", "true");
+    } else {
+      videoOneSection.setAttribute("data-open", "false");
+    }
+  };
+
+  videoOnePlayButton.addEventListener("click", videoOneEvent);
+  videoOneCrossButton.addEventListener("click", videoOneEvent);
+</script>
+
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  .video-one {
+    @include container();
+  }
+
+  .video-one-popup {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba($black-900, 0.5);
+
+    display: grid;
+    place-items: center;
+
+    .video-one-close {
+      color: $light-000;
+      position: absolute;
+      z-index: 2000;
+      width: 75px;
+      top: 5%;
+      right: 5%;
+      cursor: pointer;
+    }
+
+    video {
+      @include container(0);
+      aspect-ratio: 16/9;
+    }
+  }
+
+  .video-one[data-open="true"] .video-one-popup {
+    transform: translateY(0%);
+    transition-property: transform;
+    transition-duration: 250ms;
+  }
+
+  .video-one[data-open="false"] .video-one-popup {
+    transform: translateY(-100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+  }
+
+  .paragraph {
+    @include container();
+
+    p {
+      @include P();
+      text-align: center;
+    }
+  }
+
+  // bellow
 
   .image {
     @include container();

@@ -4,7 +4,7 @@ const testimonialEntries = await getCollection("testimonials");
 
 import Image from "astro/components/Image.astro";
 
-import { stepColors } from "../data/tabsData.js";
+import { colors } from "../data/varianceControl.js";
 
 import { Icon } from "astro-icon";
 ---
@@ -28,7 +28,7 @@ import { Icon } from "astro-icon";
           testimonialEntries.map((testimonial, index) => (
             <div
               style={`background-color: ${
-                stepColors[(index + 1) % Object.keys(stepColors).length]
+                colors[(index + 1) % Object.keys(colors).length]
               }`}
               class="testimonial"
             >

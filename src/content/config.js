@@ -20,7 +20,16 @@ const testimonialsCollection = defineCollection({
     }),
 });
 
+const stepsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    key: z.number(),
+    title: z.string(),
+  }),
+});
+
 export const collections = {
   profiles: profilesCollection,
   testimonials: testimonialsCollection,
+  steps: stepsCollection,
 };
