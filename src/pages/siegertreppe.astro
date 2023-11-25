@@ -10,9 +10,7 @@ import { Icon } from "astro-icon";
 
 import Stairs from "../components/Stairs.astro";
 
-import MainImage from "../assets/images/video-img.webp";
-
-import Tabs from "../components/Tabs.astro";
+import BookQuote from "../components/BookQuote.astro";
 ---
 
 <Layout
@@ -46,37 +44,12 @@ import Tabs from "../components/Tabs.astro";
 
   <Stairs />
 
-  <section class="image">
-    <img src={MainImage.src} alt="video image" />
-    <p>
-      Wir helfen, das volle Potenzial Ihres Unternehmens auszuschöpfen. Wir
-      bieten maßgeschneiderte Lösungen, die auf Ihre individuellen Bedürfnisse
-      zugeschnitten sind, und begleiten Sie auf jedem Schritt Ihres
-      Erfolgspfades.
-    </p>
-  </section>
-
-  <section class="tabs">
-    <div class="wrapper">
-      <h2>Siegertreppe</h2>
-      <p>
-        Sieben Schritte, die sowohl analoge als auch digitale Elemente
-        beinhalten. Sieben Schritte, die Umsetzungserfolg garantieren.
-      </p>
-      <div class="container">
-        <Tabs />
-      </div>
-    </div>
-  </section>
-
-  <div class="quote-heading">
-    <div>
-      <h2>
-        „Innovation besteht darin, zu sehen, was alle sehen und dabei zu denken,
-        was niemand denkt.“
-      </h2>
-    </div>
-  </div>
+  <BookQuote
+    heading="Inspiration und Motivation mit Praxisbeispielen"
+    text="Entdecken Sie auch die inspirierenden Bücher von Jörg Lauenroth – Führung, Teamentwicklung und mehr."
+    buttonText="Bücher entdecken"
+    buttonLink="/uber-uns"
+  />
 </Layout>
 
 <script>
@@ -148,64 +121,6 @@ import Tabs from "../components/Tabs.astro";
 
     p {
       @include P();
-      text-align: center;
-    }
-  }
-
-  // bellow
-
-  .image {
-    @include container();
-
-    p {
-      @include P();
-      text-align: center;
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
-  }
-
-  .tabs {
-    background-color: $primary-200;
-    padding-top: 120px;
-    padding-bottom: 200px;
-
-    .wrapper {
-      @include container();
-    }
-
-    h2 {
-      @include H1();
-      text-align: center;
-      padding-bottom: 100px;
-    }
-
-    p {
-      @include P();
-      text-align: center;
-    }
-
-    .container {
-      margin-top: 100px;
-      padding: 100px 80px 120px 100px;
-      background-color: $light-000;
-
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  .quote-heading {
-    padding-top: 110px;
-    padding-bottom: 110px;
-    background-color: $green-300;
-
-    div {
-      @include container();
-    }
-
-    h2 {
-      @include H1($light-000);
       text-align: center;
     }
   }

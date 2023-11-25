@@ -8,13 +8,13 @@ import { colors } from "../data/varianceControl.js";
 <section>
   <div class="section-wrapper">
     <h2>Siegertreppe</h2>
-    <p>
+    <p class="section-text">
       Sieben Schritte, die sowohl analoge als auch digitale Elemente beinhalten.
       Sieben Schritte, die Umsetzungserfolg garantieren.
     </p>
-    <div class="tabs-wrapper">
+    <div class="steps-wrapper">
       <div
-        class="tabs"
+        class="steps"
         style={`grid-template-columns: repeat(${stepEntries.length}, 1fr);`}
       >
         {
@@ -25,15 +25,37 @@ import { colors } from "../data/varianceControl.js";
               }/${stepEntries.length + 3 - step.data.key}; grid-column: ${
                 step.data.key
               }/${step.data.key + 1};`}
+              class="step-button"
             >
               {step.data.key}
             </button>
           ))
         }
       </div>
+      <div id="stepTexts" class="step-texts" data-step="0">
+        {
+          stepEntries.map((step) => (
+            <div class="step-text">
+              <h3>{step.data.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  let stepButtons = document.getElementsByClassName("step-button");
+  let stepTexts = document.getElementById("stepTexts");
+
+  Object.keys(stepButtons).forEach((key) =>
+    stepButtons[key].addEventListener("click", () => {
+      stepTexts.setAttribute("data-step", `${key}`);
+    })
+  );
+</script>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;
@@ -55,16 +77,22 @@ import { colors } from "../data/varianceControl.js";
       text-align: center;
     }
 
-    p {
+    .section-text {
       @include P();
       text-align: center;
     }
   }
 
-  .tabs {
+  .steps-wrapper {
     background-color: $light-000;
     padding: $space-60;
 
+    display: flex;
+    flex-direction: column;
+    gap: $space-40;
+  }
+
+  .steps {
     display: grid;
     gap: $space-tiny;
 
@@ -74,5 +102,77 @@ import { colors } from "../data/varianceControl.js";
       border-radius: 50px;
       cursor: pointer;
     }
+  }
+
+  .step-texts {
+    display: grid;
+
+    .step-text {
+      grid-column: 1/2;
+      grid-row: 1/2;
+
+      display: flex;
+      flex-direction: column;
+      gap: $space-30;
+
+      align-items: center;
+
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 100ms;
+
+      h3 {
+        @include H2();
+      }
+
+      p {
+        @include P();
+        text-align: center;
+
+        max-width: 1000px;
+      }
+    }
+  }
+
+  .step-texts[data-step="0"] .step-text:nth-child(1) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
+  }
+
+  .step-texts[data-step="1"] .step-text:nth-child(2) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
+  }
+
+  .step-texts[data-step="2"] .step-text:nth-child(3) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
+  }
+
+  .step-texts[data-step="3"] .step-text:nth-child(4) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
+  }
+
+  .step-texts[data-step="4"] .step-text:nth-child(5) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
+  }
+
+  .step-texts[data-step="5"] .step-text:nth-child(6) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
+  }
+
+  .step-texts[data-step="6"] .step-text:nth-child(7) {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 100ms;
   }
 </style>

@@ -3,4 +3,4 @@ key: 7
 title: Step 7
 ---
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+Pellentesque vestibulum magna et risus efficitur, ut faucibus ante vestibulum. Aliquam erat volutpat. Etiam varius, nibh quis sagittis laoreet, purus nisi scelerisque.
