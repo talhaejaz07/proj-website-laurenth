@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 
-import MainHeading from "../components/MainHeading.astro";
+import MainHeading from "../../components/MainHeading.astro";
 
-import Blog01 from "../assets/images/blog-01.webp";
-import Blog02 from "../assets/images/blog-02.webp";
-import Blog03 from "../assets/images/blog-03.webp";
-import Blog04 from "../assets/images/blog-04.webp";
+import Blog01 from "../../assets/images/blog-01.webp";
+import Blog02 from "../../assets/images/blog-02.webp";
+import Blog03 from "../../assets/images/blog-03.webp";
+import Blog04 from "../../assets/images/blog-04.webp";
 ---
 
 <Layout title="Blog">
@@ -81,7 +81,7 @@ import Blog04 from "../assets/images/blog-04.webp";
   </section>
 </Layout>
 <style lang="scss">
-  @use "../abstractStyles/" as *;
+  @use "../../abstractStyles/" as *;
 
   .blog-list {
     @include container();
