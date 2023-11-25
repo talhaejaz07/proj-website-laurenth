@@ -51,7 +51,7 @@ import { Icon } from "astro-icon";
 <script>
   // Slider Position
 
-  let sliderPosition = 0;
+  let sliderPosition = 1;
 
   let leftButton: any = document.getElementById("leftButton");
   let rightButton: any = document.getElementById("rightButton");
@@ -61,7 +61,7 @@ import { Icon } from "astro-icon";
   let testimonials: any = document.getElementsByClassName("testimonial");
 
   let leftButtonEvent = () => {
-    sliderPosition = --sliderPosition;
+    sliderPosition = sliderPosition - 1;
 
     if (sliderPosition < 1) {
       sliderPosition = 1;
@@ -71,7 +71,7 @@ import { Icon } from "astro-icon";
   };
 
   let rightButtonEvent = () => {
-    sliderPosition = ++sliderPosition;
+    sliderPosition = sliderPosition + 1;
 
     if (sliderPosition > testimonials.length) {
       sliderPosition = testimonials.length;
