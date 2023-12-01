@@ -1,11 +1,11 @@
 ---
-author: Jörg Lauenroth
-title: Post Five
+author: Talha Ejaz
+title: Test Post
 description: Vestibulum ornare egestas gravida. Nunc convallis quam turpis, nec consectetur metus lobortis et. Nulla mauris lectus, varius ut ex a, sollicitudin fermentum elit.
-datePublished: 2022-11-01
-dateUpdated: 2022-11-01
+datePublished: 2023-12-01
+dateUpdated: 2023-12-01
 tags: ["Fitness", "Coaching"]
-imageUrl: ../../assets/images/blog/0005-postFive.jpg
+imageUrl: ../../assets/images/blog/test.jpg
 imageAlt: Cover Image
 ---
 
