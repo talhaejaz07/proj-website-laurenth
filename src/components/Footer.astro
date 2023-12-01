@@ -2,7 +2,7 @@
 const {
   footerHeading,
   footerSubHeading,
-  FooterButtonVisibility = true,
+  FooterButtonVisibility = 1,
   FooterButtonText = "Kostenloses Beratungsgespräch anfragen",
   FooterButtonLink = "/kontakt",
 } = Astro.props;
@@ -20,12 +20,11 @@ import { Icon } from "astro-icon";
   <div class="wrapper">
     <h2>{footerHeading}</h2>
     <h3>{footerSubHeading}</h3>
-    <div class="button">
-      <Button
-        text={FooterButtonText}
-        href={FooterButtonLink}
-        style=`display: ${FooterButtonVisibility? "block": "none"}`
-      />
+    <div
+      class="button"
+      style=`display:${(FooterButtonVisibility==1)? "block": "none"}`
+    >
+      <Button text={FooterButtonText} href={FooterButtonLink} />
     </div>
   </div>
 </section>

@@ -6,13 +6,29 @@ import MainHeading from "../components/MainHeading.astro";
 import Calendly from "../assets/images/calendly.webp";
 ---
 
-<Layout title="Kontakt">
+<Layout
+  title="Kontakt"
+  footerHeading="Kontaktieren Sie uns"
+  footerSubHeading="Schnetzen 1/1  |  88276 Berg |  hallo@lauenroth-gmbh.de  |  07504 971 82 42"
+  FooterButtonVisibility="0"
+>
   <MainHeading
     heading="Möchten Sie uns kennenlernen? Nehmen Sie gerne Kontakt mit uns auf"
     subHeading="Wir freuen uns von Ihnen zu hören"
   />
 
-  <section><img src={Calendly.src} alt="calendly" /></section>
+  <!-- Calendly inline widget begin -->
+  <div
+    class="calendly-inline-widget"
+    data-url="https://calendly.com/talhaejaz/30min?text_color=000000&primary_color=007ba4"
+    style="min-width:320px;height:700px;"
+  >
+  </div>
+  <script
+    type="text/javascript"
+    src="https://assets.calendly.com/assets/external/widget.js"
+    async></script>
+  <!-- Calendly inline widget end -->
 </Layout>
 
 <style lang="scss">
