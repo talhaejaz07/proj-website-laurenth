@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import MainHeading from "../../components/MainHeading.astro";
 import Image from "astro/components/Image.astro";
 
@@ -42,8 +42,6 @@ const { Content } = await blogPost.render();
     </div>
     <Content />
   </article>
-
-  
 </Layout>
 
 <style lang="scss" is:global>
@@ -89,6 +87,4 @@ const { Content } = await blogPost.render();
       }
     }
   }
-
-  
 </style>
