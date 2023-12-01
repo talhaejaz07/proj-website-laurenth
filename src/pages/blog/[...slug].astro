@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/layout.astro";
+import MainHeading from "../../components/MainHeading.astro";
+import Image from "astro/components/Image.astro";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogPostEntries = await getCollection("blogPosts");
+  return blogPostEntries.map((blogPost) => ({
+    params: { slug: blogPost.slug },
+    props: { blogPost },
+  }));
+}
+
+const { blogPost } = Astro.props;
+const { Content } = await blogPost.render();
+---
+
+<Layout
+  title={blogPost.data.title}
+  footerHeading="Möchten Sie uns kennenlernen?"
+  footerSubHeading="Nehmen Sie gerne Kontakt mit uns auf. Wir freuen uns von Ihnen zu hören!"
+>
+  <MainHeading
+    heading={blogPost.data.title}
+    subHeading={`Von ${blogPost.data.author}, ${
+      blogPost.data.dateUpdated > blogPost.data.datePublished
+        ? blogPost.data.dateUpdated.toLocaleDateString()
+        : blogPost.data.datePublished.toLocaleDateString()
+    }`}
+  />
+
+  <article>
+    <div class="cover">
+      <Image
+        src={blogPost.data.imageUrl}
+        alt={blogPost.data.imageAlt}
+        width={1350}
+        height={450}
+      />
+    </div>
+    <Content />
+  </article>
+
+  
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../../abstractStyles/" as *;
+
+  article {
+    .cover {
+      @include container();
+
+      img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/1;
+        object-fit: cover;
+      }
+    }
+
+    h1 {
+      @include H1();
+      @include container($space-30 0);
+    }
+
+    h2 {
+      @include H2();
+      @include container($space-30 0);
+    }
+
+    h3 {
+      @include H3();
+      @include container($space-30 0);
+    }
+
+    p {
+      @include P();
+      @include container($space-30 0);
+    }
+
+    blockquote {
+      background-color: #b55c78;
+
+      p {
+        @include H2($light-100);
+      }
+    }
+  }
+
+  
+</style>

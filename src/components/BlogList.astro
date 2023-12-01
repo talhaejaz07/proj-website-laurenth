@@ -9,13 +9,15 @@ import Image from "astro/components/Image.astro";
   {
     blogPostEntries.map((blogPost) => (
       <div class="post">
-        <Image
-          src={blogPost.data.imageUrl}
-          alt={blogPost.data.imageAlt}
-          class="cover-image"
-          width={600}
-          height={400}
-        />
+        <a href={`/blog/${blogPost.slug}`}>
+          <Image
+            src={blogPost.data.imageUrl}
+            alt={blogPost.data.imageAlt}
+            class="cover-image"
+            width={600}
+            height={400}
+          />
+        </a>
 
         <ul>
           {blogPost.data.tags.map((tag) => (
@@ -29,11 +31,13 @@ import Image from "astro/components/Image.astro";
             : blogPost.data.datePublished.toLocaleDateString()
         }`}</p>
 
-        <h3>{blogPost.data.title}</h3>
+        <a href={`/blog/${blogPost.slug}`}>
+          <h3>{blogPost.data.title}</h3>
+        </a>
 
         <div class="description">
           <p>{blogPost.data.description}</p>
-          <a href="#">Mehr lesen &gt;</a>
+          <a href={`/blog/${blogPost.slug}`}>Mehr lesen &gt;</a>
         </div>
       </div>
     ))
@@ -90,6 +94,10 @@ import Image from "astro/components/Image.astro";
   .author {
     @include Nav();
     text-align: right;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   h3 {
