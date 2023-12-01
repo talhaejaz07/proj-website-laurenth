@@ -2,7 +2,11 @@
 import { getCollection } from "astro:content";
 const blogPostEntries = await getCollection("blogPosts");
 
+blogPostEntries.sort((a, b) => b.data.dateUpdated - a.data.dateUpdated);
+
 import Image from "astro/components/Image.astro";
+
+console.log(blogPostEntries);
 ---
 
 <section>
