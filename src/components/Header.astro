@@ -56,9 +56,10 @@ import { Icon } from "astro-icon";
     icons[i].addEventListener("click", clickEvent);
   }
 
-  let activeLink: any = document.querySelector(`[href="${location.pathname}"]`);
   if (location.pathname != "/") {
-    activeLink.classList.add("active");
+    document
+      .querySelector(`[href="${location.pathname}"]`)
+      .classList.add("active");
   }
 </script>
 
