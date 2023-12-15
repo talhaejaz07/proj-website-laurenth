@@ -60,12 +60,16 @@ import { Icon } from "astro-icon";
   console.log(activeLink);
   activeLink.forEach((link) => {
     console.log(link.href);
+
+    console.log("space");
+
+    console.log(window.location.href == link.href);
     // if (link.href === window.location.href) {
     //   link.setAttribute("aria-current", "page");
     // }
-    if (true) {
-      link.setAttribute("aria-current", "page");
-    }
+    // if (window.location.href == link.href) {
+    //   link.setAttribute("aria-current", "page");
+    // };
   });
 </script>
 
