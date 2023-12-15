@@ -12,16 +12,8 @@ import { Icon } from "astro-icon";
 <section id="testimonialSection">
   <h2>Testimonials</h2>
   <div id="testimonialSlider" class="slider" data-position="1">
-    <Icon
-      id="leftButton"
-      name="mdi:arrow-left-thin-circle-outline"
-      class="left"
-    />
-    <Icon
-      id="rightButton"
-      name="mdi:arrow-right-thin-circle-outline"
-      class="right"
-    />
+    <Icon id="leftButton" name="arrow-left-circle" class="left" />
+    <Icon id="rightButton" name="arrow-right-circle" class="right" />
     <div class="wrapper">
       <div class="testimonials">
         {
@@ -110,10 +102,10 @@ import { Icon } from "astro-icon";
   .left,
   .right {
     position: absolute;
-    width: 70px;
+    width: 60px;
 
     @include for-phone-only {
-      width: 35px;
+      width: 30px;
     }
     color: $primary-500;
     top: 50%;
@@ -175,6 +167,8 @@ import { Icon } from "astro-icon";
 
   img {
     border-radius: 50%;
+    width: 150px;
+    height: auto;
   }
 
   h3 {

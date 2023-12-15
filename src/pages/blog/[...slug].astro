@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import MainHeading from "../../components/MainHeading.astro";
 import Image from "astro/components/Image.astro";
 
+import RecentArticles from "../../components/RecentArticles.astro";
+
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -42,6 +44,8 @@ const { Content } = await blogPost.render();
     </div>
     <Content />
   </article>
+
+  <RecentArticles />
 </Layout>
 
 <style lang="scss" is:global>

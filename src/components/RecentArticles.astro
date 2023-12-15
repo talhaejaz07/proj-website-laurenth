@@ -1,0 +1,135 @@
+---
+import { getCollection } from "astro:content";
+let blogPostEntries = await getCollection("blogPosts");
+
+blogPostEntries.sort((a, b) => b.data.dateUpdated - a.data.dateUpdated);
+
+blogPostEntries = blogPostEntries.slice(0, 2);
+
+import Image from "astro/components/Image.astro";
+---
+
+<section>
+  <h2>Vielleicht interessiert Sie dies auch?</h2>
+
+  <div class="posts">
+    {
+      blogPostEntries.map((blogPost) => (
+        <div class="post">
+          <a href={`/blog/${blogPost.slug}`}>
+            <Image
+              src={blogPost.data.imageUrl}
+              alt={blogPost.data.imageAlt}
+              class="cover-image"
+              width={600}
+              height={400}
+            />
+          </a>
+
+          <ul>
+            {blogPost.data.tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+
+          <p class="author">{`Von ${blogPost.data.author}, ${
+            blogPost.data.dateUpdated > blogPost.data.datePublished
+              ? blogPost.data.dateUpdated.toLocaleDateString()
+              : blogPost.data.datePublished.toLocaleDateString()
+          }`}</p>
+
+          <a href={`/blog/${blogPost.slug}`}>
+            <h3>{blogPost.data.title}</h3>
+          </a>
+
+          <div class="description">
+            <p>{blogPost.data.description}</p>
+            <a href={`/blog/${blogPost.slug}`}>Mehr lesen &gt;</a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    @include container();
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-100;
+  }
+
+  h2 {
+    @include H1();
+    text-align: center;
+  }
+
+  .posts {
+    display: flex;
+    gap: $space-40;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .post {
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-30;
+  }
+
+  .cover-image {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-medium;
+  }
+
+  li {
+    list-style: none;
+    @include Nav($black-300);
+    background-color: $light-200;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid $black-250;
+  }
+
+  .author {
+    @include Nav($black-300);
+    text-align: right;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h3 {
+    @include H3();
+  }
+
+  .description {
+    p,
+    a {
+      @include P();
+      padding-top: $space-medium;
+    }
+
+    a {
+      color: $primary-500;
+      text-decoration: none;
+
+      font-weight: 500;
+    }
+  }
+</style>
