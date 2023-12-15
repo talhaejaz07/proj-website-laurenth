@@ -56,11 +56,14 @@ import { Icon } from "astro-icon";
     icons[i].addEventListener("click", clickEvent);
   }
 
-  let activeLink = document.querySelector(`[href="${location.pathname}"]`);
+  let activeLink = document.querySelectorAll(".header-link");
   console.log(activeLink);
-  if (location.pathname != "/") {
-    activeLink.className += " active";
-  }
+  activeLink.forEach((link) => {
+    console.log(link.href);
+    if (link.href === window.location.href) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
 </script>
 
 <style lang="scss">
@@ -213,12 +216,12 @@ import { Icon } from "astro-icon";
     transform-origin: left;
   }
 
-  .active {
+  .header-link[aria-current="page"] {
     font-weight: 700;
     color: $primary-500;
   }
 
-  .active::after {
+  .header-link[aria-current="page"]::after {
     position: absolute;
     bottom: -34px;
     left: 0;
