@@ -1,8 +1,8 @@
 ---
-const { href, text } = Astro.props;
+const { href, text, target = "_self" } = Astro.props;
 ---
 
-<a href={href}><button>{text}</button></a>
+<a href={href} target={target}><button>{text}</button></a>
 
 <style lang="scss">
   @use "../abstractStyles/" as *;

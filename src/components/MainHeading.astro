@@ -1,5 +1,7 @@
 ---
 const {
+  preHeading,
+  preHeadingVisibility = false,
   heading,
   subHeading,
   buttonVisibility = false,
@@ -13,6 +15,9 @@ import Button from "../components/Button.astro";
 <section>
   <div class="bg-circle"></div>
   <div class="wrapper">
+    <h1 style=`display: ${preHeadingVisibility? "block": "none"}`>
+      {preHeading}
+    </h1>
     <h1>
       {heading}
     </h1>

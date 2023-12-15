@@ -5,10 +5,10 @@ import logoColored from "../assets/images/logo/logo-colored.webp";
 import { Icon } from "astro-icon";
 ---
 
-<section>
+<section id="header">
   <header data-click="false">
     <a class="logo" href="/">
-      <Image src={logoColored} alt="Logo" width={288} />
+      <Image src={logoColored} alt="Logo" width={750} />
     </a>
 
     <nav>
@@ -61,6 +61,11 @@ import { Icon } from "astro-icon";
   @use "../abstractStyles/" as *;
 
   section {
+    position: fixed;
+    z-index: 1000;
+
+    width: 100%;
+
     background-color: $light-000;
     padding: $space-medium 0;
   }
@@ -75,6 +80,11 @@ import { Icon } from "astro-icon";
     @include for-phone-only {
       grid-template-columns: 75% 25%;
     }
+  }
+
+  .logo img {
+    width: 288px;
+    height: auto;
   }
 
   @include for-desktop-only {

@@ -83,7 +83,16 @@ const { Content } = await blogPost.render();
       background-color: #b55c78;
 
       p {
+        @include container($space-100 0);
         @include H2($light-100);
+        max-width: 75rem;
+
+        &::before {
+          content: "„";
+        }
+        &:after {
+          content: "“";
+        }
       }
     }
   }

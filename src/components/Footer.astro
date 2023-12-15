@@ -232,13 +232,19 @@ import { Icon } from "astro-icon";
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
     gap: $space-medium;
 
     @include for-desktop-only {
       border-left: 1px solid $light-000;
       margin-left: $space-80;
+      align-items: left;
+      padding-left: 10%;
     }
+
+    @include for-smaller-than-desktop {
+      align-items: center;
+    }
+
     p {
       @include P($light-000);
     }
