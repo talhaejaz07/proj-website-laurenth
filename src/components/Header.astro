@@ -58,11 +58,9 @@ import { Icon } from "astro-icon";
 
   let activeLink = document.querySelector(`[href="${location.pathname}"]`);
   console.log(activeLink);
-  // if (location.pathname != "/") {
-  //   document
-  //     .querySelector(`[href="${location.pathname}"]`)
-  //     .classList.add("active");
-  // }
+  if (location.pathname != "/") {
+    activeLink.className += " active";
+  }
 </script>
 
 <style lang="scss">
