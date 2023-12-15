@@ -4,7 +4,7 @@ let blogPostEntries = await getCollection("blogPosts");
 
 blogPostEntries.sort((a, b) => b.data.dateUpdated - a.data.dateUpdated);
 
-blogPostEntries = blogPostEntries.slice(0, 2);
+blogPostEntries = blogPostEntries.slice(3, 5);
 
 import Image from "astro/components/Image.astro";
 ---
