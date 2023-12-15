@@ -38,8 +38,8 @@ import { Icon } from "astro-icon";
   </header>
 </section>
 
-<script>
-  let header: any = document.querySelector("header");
+<script defer>
+  let header = document.querySelector("header");
   let click = false;
   let clickEvent = () => {
     click = !click;
@@ -58,6 +58,7 @@ import { Icon } from "astro-icon";
 
   let activeLink = document.querySelectorAll(".header-link");
   activeLink.forEach((link) => {
+    console.log(link.href === window.location.href);
     if (link.href === window.location.href) {
       link.setAttribute("aria-current", "page");
     }
