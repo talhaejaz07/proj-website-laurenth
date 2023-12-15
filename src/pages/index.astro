@@ -96,12 +96,11 @@ import BookQuote from "../components/BookQuote.astro";
 
     <div class="sponsors-logos-list-wrapper">
       <div class="sponsors-logos-list">
-        <Icon name="logos:atom" class="sponsor-logo" />
-        <Icon name="logos:auth0" class="sponsor-logo" />
-        <Icon name="logos:500px" class="sponsor-logo" />
-        <Icon name="logos:apple-pay" class="sponsor-logo" />
-        <Icon name="logos:android" class="sponsor-logo" />
-        <Icon name="logos:adyen" class="sponsor-logo" />
+        <Icon name="cws" class="sponsor-logo" />
+        <Icon name="wil" class="sponsor-logo" />
+        <Icon name="cws" class="sponsor-logo" />
+        <Icon name="wil" class="sponsor-logo" />
+        <Icon name="cws" class="sponsor-logo" />
       </div>
     </div>
   </section>
@@ -235,7 +234,7 @@ import BookQuote from "../components/BookQuote.astro";
     @include container-wide();
     display: flex;
     flex-direction: column;
-    gap: $space-small;
+    gap: $space-30;
 
     h2 {
       @include H2();
@@ -298,7 +297,7 @@ import BookQuote from "../components/BookQuote.astro";
     padding: $space-60 0;
     h2 {
       @include container(0);
-      @include H2();
+      @include P();
       margin-bottom: $space-40;
     }
 
@@ -310,7 +309,8 @@ import BookQuote from "../components/BookQuote.astro";
       @include container();
 
       display: flex;
-      gap: $space-40;
+      row-gap: $space-60;
+      column-gap: $space-40;
       flex-wrap: wrap;
       justify-content: space-evenly;
     }

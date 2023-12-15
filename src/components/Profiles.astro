@@ -4,7 +4,9 @@ const profileEntries = await getCollection("profiles");
 
 import Image from "astro/components/Image.astro";
 
-import { colors } from "../data/varianceControl.js";
+import { profileColors } from "../data/varianceControl.js";
+
+console.log(profileColors[3]);
 ---
 
 <section>
@@ -20,9 +22,7 @@ import { colors } from "../data/varianceControl.js";
           />
           <div
             class="intro"
-            style={`background-color: ${
-              colors[(index + 1) % Object.keys(colors).length]
-            }`}
+            style={`background-color: ${profileColors[index + 1]}`}
           >
             <p>{profile.body}</p>
           </div>
@@ -101,7 +101,7 @@ import { colors } from "../data/varianceControl.js";
 
     li {
       list-style: none;
-      @include Nav();
+      @include Nav($black-300);
       background-color: $light-200;
       padding: 5px 20px;
       border-radius: 10px;
@@ -110,6 +110,6 @@ import { colors } from "../data/varianceControl.js";
   }
 
   h3 {
-    @include H2();
+    @include H3();
   }
 </style>

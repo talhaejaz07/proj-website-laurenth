@@ -43,19 +43,16 @@ import bgBook from "../assets/images/bg-book.png";
       right: -5%;
       top: 15%;
 
-      @media (width <= 1780px) {
-        right: -20%;
-        top: 35%;
-      }
-
       @media (width <= 1200px) {
         top: 45%;
       }
       @media (width <= 1000px) {
-        top: 60%;
+        top: 50%;
+        right: -20%;
       }
-      @media (width <= 1000px) {
-        top: 70%;
+      @media (width <= 550px) {
+        top: 20%;
+        right: -60%;
       }
     }
   }
@@ -72,6 +69,9 @@ import bgBook from "../assets/images/bg-book.png";
     h2 {
       @include H1();
       text-align: center;
+
+      position: relative;
+      z-index: 500;
     }
 
     h3 {

@@ -68,17 +68,23 @@ import { Icon } from "astro-icon";
       </ul>
     </div>
     <div class="social">
-      <a href="https://www.xing.com/" target="_blank">
+      <a href="https://www.xing.com/profile/Joerg_Lauenroth" target="_blank">
         <Icon name="ri:xing-fill" class="social-logo" title="xing link" />
       </a>
-      <a href="https://www.linkedin.com/" target="_blank">
+      <a
+        href="http://www.linkedin.com/in/j%C3%B6rg-lauenroth-1bb82953"
+        target="_blank"
+      >
         <Icon
           name="ri:linkedin-box-fill"
           class="social-logo"
           title="linkedin link"
         />
       </a>
-      <a href="https://www.facebook.com/" target="_blank">
+      <a
+        href="https://www.facebook.com/Lauenrothpotenzialtraining"
+        target="_blank"
+      >
         <Icon
           name="ri:facebook-box-fill"
           class="social-logo"
@@ -87,13 +93,31 @@ import { Icon } from "astro-icon";
       </a>
     </div>
     <div class="contact">
+      <p>Schnetzen 1/1 88276 Berg</p>
       <p>
         <b>Kontaktieren Sie uns</b>
       </p>
-      <p>Schnetzen 1/1 88276 Berg</p>
-
+      <a href="mailto:hallo@lauenroth-gmbh.de">
+        <p>
+          <span
+            ><Icon
+              name="clarity:envelope-solid"
+              class="footer-contact-icons"
+            /></span
+          >hallo@lauenroth-gmbh.de
+        </p>
+      </a>
       <p><b>Rufen Sie uns an</b></p>
-      <p>07504 971 82 42</p>
+      <a href="tel:07504 971 82 42">
+        <p>
+          <span
+            ><Icon
+              name="clarity:phone-handset-solid"
+              class="footer-contact-icons"
+            /></span
+          >07504 971 82 42
+        </p>
+      </a>
     </div>
   </footer>
 </section>
@@ -247,6 +271,14 @@ import { Icon } from "astro-icon";
 
     p {
       @include P($light-000);
+    }
+
+    a {
+      text-decoration: none;
+    }
+    .footer-contact-icons {
+      width: 20px;
+      margin-right: $space-small;
     }
   }
 </style>
