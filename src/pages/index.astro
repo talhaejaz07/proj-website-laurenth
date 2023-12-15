@@ -232,7 +232,10 @@ import BookQuote from "../components/BookQuote.astro";
   }
 
   .second-heading {
-    @include container();
+    @include container-wide();
+    display: flex;
+    flex-direction: column;
+    gap: $space-small;
 
     h2 {
       @include H2();

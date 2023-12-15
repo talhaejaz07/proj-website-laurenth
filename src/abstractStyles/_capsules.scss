@@ -5,3 +5,9 @@
   width: min(88rem, 100vw - $space-large);
   padding: $padding;
 }
+
+@mixin container-wide($padding: $space-60 0) {
+  margin-inline: auto;
+  width: min(101rem, 100vw - $space-large);
+  padding: $padding;
+}

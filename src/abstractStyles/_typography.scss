@@ -108,7 +108,7 @@ $navigation: 25px;
   }
 
   @include for-phone-only {
-    font-size: math.div($navigation, 2);
+    font-size: math.div(16 * $navigation, 25);
   }
 }
 
@@ -128,7 +128,7 @@ $navigation: 25px;
   }
 
   @include for-phone-only {
-    font-size: math.div($paragraph, 2);
+    font-size: math.div(3 * $paragraph, 5);
   }
 }
 
@@ -147,7 +147,7 @@ $navigation: 25px;
   }
 
   @include for-phone-only {
-    font-size: math.div($paragraph, 2);
+    font-size: math.div(3 * $paragraph, 5);
   }
 }
 // @mixin H2($color: $secondary-color-05, $font-size: 32px) {
