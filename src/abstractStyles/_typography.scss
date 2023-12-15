@@ -1,10 +1,19 @@
 @use "./colors.scss" as *;
 @use "./breakpoints.scss" as *;
+@use "sass:math";
 
 // Font Families
 
 $heading-font: "Open Sans", sans-serif;
 $text-font: "Open Sans", sans-serif;
+
+// Font Size
+
+$heading01: 60px;
+$heading02: 50px;
+$heading03: 40px;
+$paragraph: 30px;
+$navigation: 25px;
 
 // Mixins
 
@@ -19,15 +28,15 @@ $text-font: "Open Sans", sans-serif;
   font-weight: 300;
 
   @include for-desktop-only {
-    font-size: 50px;
+    font-size: $heading01;
   }
 
   @include for-tablet-only {
-    font-size: 40px;
+    font-size: math.div(2 * $heading01, 3);
   }
 
   @include for-phone-only {
-    font-size: 35px;
+    font-size: math.div($heading01, 2);
   }
 }
 
@@ -36,15 +45,15 @@ $text-font: "Open Sans", sans-serif;
   font-weight: 300;
 
   @include for-desktop-only {
-    font-size: 40px;
+    font-size: $heading02;
   }
 
   @include for-tablet-only {
-    font-size: 30px;
+    font-size: math.div(2 * $heading02, 3);
   }
 
   @include for-phone-only {
-    font-size: 28px;
+    font-size: math.div($heading02, 2);
   }
 }
 
@@ -53,15 +62,15 @@ $text-font: "Open Sans", sans-serif;
   font-weight: 300;
 
   @include for-desktop-only {
-    font-size: 30px;
+    font-size: $heading03;
   }
 
   @include for-tablet-only {
-    font-size: 26px;
+    font-size: math.div(2 * $heading03, 3);
   }
 
   @include for-phone-only {
-    font-size: 22px;
+    font-size: math.div($heading03, 2);
   }
 }
 
@@ -69,16 +78,17 @@ $text-font: "Open Sans", sans-serif;
   @include headingBasics($color);
 
   font-weight: 500;
+
   @include for-desktop-only {
-    font-size: 30px;
+    font-size: $heading03;
   }
 
   @include for-tablet-only {
-    font-size: 26px;
+    font-size: math.div(2 * $heading03, 3);
   }
 
   @include for-phone-only {
-    font-size: 22px;
+    font-size: math.div($heading03, 2);
   }
 }
 
@@ -90,15 +100,15 @@ $text-font: "Open Sans", sans-serif;
   text-decoration: none;
 
   @include for-desktop-only {
-    font-size: 25px;
+    font-size: $navigation;
   }
 
   @include for-tablet-only {
-    font-size: 22px;
+    font-size: math.div(2 * $navigation, 3);
   }
 
   @include for-phone-only {
-    font-size: 20px;
+    font-size: math.div($navigation, 2);
   }
 }
 
@@ -110,15 +120,15 @@ $text-font: "Open Sans", sans-serif;
   color: $color;
 
   @include for-desktop-only {
-    font-size: 30px;
+    font-size: $paragraph;
   }
 
   @include for-tablet-only {
-    font-size: 24px;
+    font-size: math.div(2 * $paragraph, 3);
   }
 
   @include for-phone-only {
-    font-size: 20px;
+    font-size: math.div($paragraph, 2);
   }
 }
 
@@ -129,15 +139,15 @@ $text-font: "Open Sans", sans-serif;
   color: $color;
 
   @include for-desktop-only {
-    font-size: 30px;
+    font-size: $paragraph;
   }
 
   @include for-tablet-only {
-    font-size: 24px;
+    font-size: math.div(2 * $paragraph, 3);
   }
 
   @include for-phone-only {
-    font-size: 20px;
+    font-size: math.div($paragraph, 2);
   }
 }
 // @mixin H2($color: $secondary-color-05, $font-size: 32px) {
