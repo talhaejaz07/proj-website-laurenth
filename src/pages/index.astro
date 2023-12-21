@@ -187,13 +187,15 @@ import BookQuote from "../components/BookQuote.astro";
   }
 
   .video-one[data-open="true"] .video-one-popup {
+    opacity: 1;
     transform: translateY(0%);
     transition-property: transform;
     transition-duration: 250ms;
   }
 
   .video-one[data-open="false"] .video-one-popup {
-    transform: translateY(-100%);
+    opacity: 0;
+    transform: translateY(-150%);
     transition-property: transform;
     transition-duration: 250ms;
   }
@@ -277,13 +279,15 @@ import BookQuote from "../components/BookQuote.astro";
   }
 
   .video-two[data-open="true"] .video-two-popup {
+    opacity: 1;
     transform: translateY(0%);
     transition-property: transform;
     transition-duration: 250ms;
   }
 
   .video-two[data-open="false"] .video-two-popup {
-    transform: translateY(-100%);
+    opacity: 0;
+    transform: translateY(-150%);
     transition-property: transform;
     transition-duration: 250ms;
   }

@@ -1,5 +1,6 @@
 ---
 const {
+  preFooterVisibility = 1,
   footerHeading,
   footerSubHeading,
   FooterButtonVisibility = 1,
@@ -15,7 +16,10 @@ import logoWhite from "../assets/images/logo/logo-white.webp";
 import { Icon } from "astro-icon";
 ---
 
-<section class="pre-footer">
+<section
+  class="pre-footer"
+  style=`display:${(preFooterVisibility==1)? "block": "none"}`
+>
   <div class="bg-circle"></div>
   <div class="wrapper">
     <h2>{footerHeading}</h2>

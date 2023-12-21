@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 const {
   title,
+  preFooterVisibility = 1,
   footerHeading,
   footerSubHeading,
   FooterButtonVisibility = 1,
@@ -36,6 +37,7 @@ import Favicon from "../assets/images/favicon.webp";
     <Header />
     <slot />
     <Footer
+      preFooterVisibility={preFooterVisibility}
       footerHeading={footerHeading}
       footerSubHeading={footerSubHeading}
       FooterButtonVisibility={FooterButtonVisibility}
