@@ -7,6 +7,10 @@ const {
   buttonVisibility = false,
   buttonText = "Das sind wir",
   buttonLink = "#",
+  contactVisibility = false,
+  address,
+  email,
+  number,
 } = Astro.props;
 
 import Button from "../components/Button.astro";
@@ -24,6 +28,16 @@ import Button from "../components/Button.astro";
     <h2>{subHeading}</h2>
     <div class="button" style=`display: ${buttonVisibility? "block": "none"}`>
       <Button href={buttonLink} text={buttonText} />
+    </div>
+    <div
+      class="contact-detail"
+      style=`display: ${contactVisibility? "block": "none"}`
+    >
+      <p>
+        <span>{address} |</span><span
+          ><a href={`mailto:${email}`}>&nbsp {email}</a></span
+        ><span> | {number}</span>
+      </p>
     </div>
   </div>
 </section>
@@ -67,5 +81,19 @@ import Button from "../components/Button.astro";
 
   .button {
     text-align: center;
+  }
+
+  .contact-detail {
+    @include H3();
+    text-align: center;
+    padding-bottom: $space-40;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $black-900;
+    }
   }
 </style>

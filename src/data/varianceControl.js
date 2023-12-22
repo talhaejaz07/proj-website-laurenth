@@ -9,8 +9,8 @@ export const colors = {
 };
 
 export const profileColors = {
-  1: "#8DB6A6",
-  2: "#B55C78",
-  3: "#E8D24A",
-  4: "#B5DBCC",
+  1: "#8eb7a5",
+  2: "#b55d76",
+  3: "#ead24c",
+  4: "#007ba4",
 };

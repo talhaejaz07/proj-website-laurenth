@@ -9,11 +9,25 @@ $text-font: "Open Sans", sans-serif;
 
 // Font Size
 
-$heading01: 60px;
-$heading02: 50px;
-$heading03: 40px;
-$paragraph: 30px;
-$navigation: 25px;
+$heading01-desktop: 30px;
+$heading01-tab: 26px;
+$heading01-mobile: $heading01-tab;
+
+$heading02-desktop: 26px;
+$heading02-tab: 22px;
+$heading02-mobile: $heading02-tab;
+
+$heading03-desktop: 22px;
+$heading03-tab: 20px;
+$heading03-mobile: $heading03-tab;
+
+$paragraph-desktop: 18px;
+$paragraph-tab: 16px;
+$paragraph-mobile: $paragraph-tab;
+
+$navigation-desktop: 16px;
+$navigation-tab: 15px;
+$navigation-mobile: $navigation-tab;
 
 // Mixins
 
@@ -28,15 +42,15 @@ $navigation: 25px;
   font-weight: 300;
 
   @include for-desktop-only {
-    font-size: $heading01;
+    font-size: $heading01-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $heading01, 3);
+    font-size: $heading01-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div($heading01, 2);
+    font-size: $heading01-mobile;
   }
 }
 
@@ -45,15 +59,15 @@ $navigation: 25px;
   font-weight: 300;
 
   @include for-desktop-only {
-    font-size: $heading02;
+    font-size: $heading02-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $heading02, 3);
+    font-size: $heading02-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div($heading02, 2);
+    font-size: $heading02-mobile;
   }
 }
 
@@ -62,15 +76,15 @@ $navigation: 25px;
   font-weight: 300;
 
   @include for-desktop-only {
-    font-size: $heading03;
+    font-size: $heading03-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $heading03, 3);
+    font-size: $heading03-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div($heading03, 2);
+    font-size: $heading03-mobile;
   }
 }
 
@@ -80,15 +94,15 @@ $navigation: 25px;
   font-weight: 500;
 
   @include for-desktop-only {
-    font-size: $heading03;
+    font-size: $heading03-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $heading03, 3);
+    font-size: $heading03-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div($heading03, 2);
+    font-size: $heading03-mobile;
   }
 }
 
@@ -100,15 +114,15 @@ $navigation: 25px;
   text-decoration: none;
 
   @include for-desktop-only {
-    font-size: $navigation;
+    font-size: $navigation-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $navigation, 3);
+    font-size: $navigation-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div(16 * $navigation, 25);
+    font-size: $navigation-mobile;
   }
 }
 
@@ -120,15 +134,15 @@ $navigation: 25px;
   color: $color;
 
   @include for-desktop-only {
-    font-size: $paragraph;
+    font-size: $paragraph-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $paragraph, 3);
+    font-size: $paragraph-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div(3 * $paragraph, 5);
+    font-size: $paragraph-mobile;
   }
 }
 
@@ -139,15 +153,15 @@ $navigation: 25px;
   color: $color;
 
   @include for-desktop-only {
-    font-size: $paragraph;
+    font-size: $paragraph-desktop;
   }
 
   @include for-tablet-only {
-    font-size: math.div(2 * $paragraph, 3);
+    font-size: $paragraph-tab;
   }
 
   @include for-phone-only {
-    font-size: math.div(3 * $paragraph, 5);
+    font-size: $paragraph-mobile;
   }
 }
 // @mixin H2($color: $secondary-color-05, $font-size: 32px) {

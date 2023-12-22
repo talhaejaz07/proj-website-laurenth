@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import logoColored from "../assets/images/logo/logo-colored.webp";
 
 import { Icon } from "astro-icon";
 ---
@@ -8,7 +7,7 @@ import { Icon } from "astro-icon";
 <section id="header">
   <header data-click="false">
     <a class="logo" href="/">
-      <Image src={logoColored} alt="Logo" width={750} />
+      <Icon name="logo" class="sponsor-logo" />
     </a>
 
     <nav>
@@ -25,9 +24,9 @@ import { Icon } from "astro-icon";
         <li>
           <a class="nav-link header-link" href="/blog">Blog</a>
         </li>
-        <li>
+        <!-- <li>
           <a class="nav-link header-link" href="/app">App</a>
-        </li>
+        </li> -->
         <li>
           <a class="nav-link header-link" href="/kontakt">Kontakt</a>
         </li>
@@ -82,7 +81,7 @@ import { Icon } from "astro-icon";
     position: relative;
 
     display: grid;
-    grid-template-columns: 288px 1fr;
+    grid-template-columns: 240px 1fr;
 
     @include for-phone-only {
       grid-template-columns: 75% 25%;
@@ -90,7 +89,7 @@ import { Icon } from "astro-icon";
   }
 
   .logo img {
-    max-width: 288px;
+    max-width: 240px;
     height: auto;
   }
 

@@ -1,0 +1,51 @@
+---
+const { heading, subHeading } = Astro.props;
+---
+
+<section>
+  <div class="bg-circle"></div>
+  <div class="wrapper">
+    <h1>
+      {heading}
+    </h1>
+    <h2>{subHeading}</h2>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    position: relative;
+    margin-bottom: $space-60;
+    overflow: hidden;
+  }
+
+  .bg-circle {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    width: 5750px;
+    height: 5750px;
+    background-color: $primary-200;
+
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .wrapper {
+    @include container-wide();
+  }
+
+  h1 {
+    @include H1();
+    text-align: center;
+  }
+
+  h2 {
+    @include P($black-300);
+    text-align: center;
+    padding-bottom: $space-40;
+  }
+</style>
