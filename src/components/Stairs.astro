@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 const stepEntries = await getCollection("steps");
 
 import { colors } from "../data/varianceControl.js";
+
+import { Icon } from "astro-icon";
 ---
 
 <section>
@@ -13,31 +15,35 @@ import { colors } from "../data/varianceControl.js";
       Sieben Schritte, die Umsetzungserfolg garantieren.
     </p>
     <div class="steps-wrapper">
-      <div
-        class="steps"
-        style={`grid-template-columns: repeat(${stepEntries.length}, 1fr);`}
-      >
-        {
-          stepEntries.map((step, index) => (
-            <button
-              style={`background-color: ${colors[index + 1]}; grid-row: ${
-                stepEntries.length + 1 - step.data.key
-              }/${stepEntries.length + 3 - step.data.key}; grid-column: ${
-                step.data.key
-              }/${step.data.key + 1};`}
-              class="step-button"
-            >
-              {step.data.key}
-            </button>
-          ))
-        }
-      </div>
       <div id="stepTexts" class="step-texts" data-step="0">
         {
           stepEntries.map((step) => (
             <div class="step-text">
               <h3>{step.data.title}</h3>
               <p>{step.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="steps"
+        style={`grid-template-columns: repeat(${stepEntries.length}, 1fr);`}
+      >
+        {
+          stepEntries.map((step, index) => (
+            <div
+              style={`grid-row: ${stepEntries.length + 1 - step.data.key}/${
+                stepEntries.length + 3 - step.data.key
+              }; grid-column: ${step.data.key}/${step.data.key + 1};`}
+              class="step-button-wrapper"
+            >
+              <button
+                style={`background-color: ${colors[index + 1]};`}
+                class="step-button"
+              >
+                {step.data.key}
+              </button>
+              <Icon name="next-stair" class="next-stair" />
             </div>
           ))
         }
@@ -88,7 +94,7 @@ import { colors } from "../data/varianceControl.js";
     padding: $space-60;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: $space-40;
   }
 
@@ -96,12 +102,108 @@ import { colors } from "../data/varianceControl.js";
     display: grid;
     gap: $space-tiny;
 
+    .step-button-wrapper {
+      position: relative;
+    }
+
     button {
+      width: 100%;
       @include H2($light-000);
       border: 0px;
       border-radius: 50px;
       cursor: pointer;
     }
+  }
+
+  .next-stair {
+    position: absolute;
+    width: 100%;
+    bottom: -130px;
+    left: 80%;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 250ms;
+
+    @include for-tablet-only {
+      bottom: -80px;
+    }
+
+    @include for-phone-only {
+      bottom: -50px;
+    }
+  }
+
+  .step-button-wrapper:hover .next-stair {
+    opacity: 0.75;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="0"]
+    + .steps
+    .step-button-wrapper:nth-child(1)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="1"]
+    + .steps
+    .step-button-wrapper:nth-child(2)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="2"]
+    + .steps
+    .step-button-wrapper:nth-child(3)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="3"]
+    + .steps
+    .step-button-wrapper:nth-child(4)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="4"]
+    + .steps
+    .step-button-wrapper:nth-child(5)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="5"]
+    + .steps
+    .step-button-wrapper:nth-child(6)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .step-texts[data-step="6"]
+    + .steps
+    .step-button-wrapper:nth-child(6)
+    .next-stair {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
+
+  .steps .step-button-wrapper:nth-child(7) .next-stair {
+    opacity: 0 !important;
   }
 
   .step-texts {
