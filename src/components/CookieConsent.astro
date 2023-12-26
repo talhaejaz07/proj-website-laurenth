@@ -1,5 +1,5 @@
-<section id="cookieConsent">
-  <!-- <div class="wrapper">
+<section id="cookieConsent" class="hide">
+  <div id="cookieConsentOne" class="wrapper">
     <div class="description">
       <h2>Cookies</h2>
       <p>
@@ -11,15 +11,17 @@
     </div>
     <div class="buttons">
       <div class="accept-reject">
-        <button>Alle ablehnen</button>
-        <button>Alle akzeptieren</button>
+        <button class="cookie-consent-false">Alle ablehnen</button>
+        <button class="cookie-consent-true">Alle akzeptieren</button>
       </div>
-      <button class="settings">Einstellungen verwalten</button>
+      <button id="sectionHideControl" class="settings"
+        >Einstellungen verwalten</button
+      >
     </div>
     <a class="privacy-policy" href="/datenschutz">Datenschutz</a>
-  </div> -->
+  </div>
 
-  <div class="wrapper">
+  <div id="cookieConsentTwo" class="wrapper hide">
     <h2>Präferenzen</h2>
 
     <div class="options">
@@ -95,14 +97,72 @@
     </div>
 
     <div class="accept-save">
-      <button>Alle ablehnen</button>
-      <button>Einstellungen speichern</button>
+      <button class="cookie-consent-false">Alle ablehnen</button>
+      <button class="cookie-consent-true">Einstellungen speichern</button>
     </div>
   </div>
 </section>
 
+<script>
+  let section: any = document.getElementById("cookieConsent");
+
+  let cookieBanner = localStorage.getItem("consent");
+
+  console.log(cookieBanner);
+
+  if (cookieBanner == null) {
+    section.classList.remove("hide");
+  }
+
+  let sectionOne: any = document.getElementById("cookieConsentOne");
+  let sectionTwo: any = document.getElementById("cookieConsentTwo");
+
+  let sectionHideButton: any = document.getElementById("sectionHideControl");
+
+  sectionHideButton.addEventListener("click", sectionHideControl);
+
+  let sectionHide = false;
+
+  function sectionHideControl() {
+    sectionHide = !sectionHide;
+    if (sectionHide) {
+      sectionOne.classList.add("hide");
+      sectionTwo.classList.remove("hide");
+    }
+  }
+
+  const setTrue = () => {
+    localStorage.setItem("consent", "true");
+    section.classList.add("hide");
+  };
+
+  const setFalse = () => {
+    localStorage.setItem("consent", "false");
+    section.classList.add("hide");
+  };
+
+  let trueList = document.getElementsByClassName("cookie-consent-true");
+  let falseList = document.getElementsByClassName("cookie-consent-false");
+
+  for (let index = 0; index < trueList.length; index++) {
+    trueList[index].addEventListener("click", setTrue);
+  }
+
+  for (let index = 0; index < trueList.length; index++) {
+    falseList[index].addEventListener("click", setFalse);
+  }
+</script>
+
 <style lang="scss">
   @use "../abstractStyles/" as *;
+
+  //   Classes for JavaScript
+
+  .hide {
+    display: none !important;
+  }
+
+  // Normal Styling
 
   section {
     position: fixed;
