@@ -59,7 +59,7 @@
 
       <div class="option">
         <div class="option-heading">
-          <h3>Analytische Cookies</h3>
+          <h3 class="small-heading">Analytische Cookies</h3>
           <input
             type="checkbox"
             name="notwendigeCookies"
@@ -92,6 +92,11 @@
           bereitzustellen.
         </p>
       </div>
+    </div>
+
+    <div class="accept-save">
+      <button>Alle ablehnen</button>
+      <button>Einstellungen speichern</button>
     </div>
   </div>
 </section>
@@ -209,5 +214,55 @@
   .option-heading {
     display: flex;
     justify-content: space-between;
+  }
+
+  .option-heading h3 {
+    @include for-phone-only {
+      font-size: 16px;
+    }
+  }
+
+  .option-text {
+    @include for-phone-only {
+      font-size: 12px;
+    }
+  }
+
+  .accept-save {
+    display: flex;
+    justify-content: space-evenly;
+    gap: $space-small;
+
+    @include for-phone-only {
+      flex-direction: column;
+    }
+
+    button {
+      padding: $space-small $space-medium;
+
+      font-weight: 500 !important;
+      cursor: pointer;
+
+      border: 1px solid $primary-500;
+      border-radius: 5px;
+    }
+
+    button:nth-child(1) {
+      @include Nav($primary-500);
+      background-color: $light-000;
+    }
+
+    button:nth-child(1):hover {
+      background-color: $primary-200;
+    }
+
+    button:nth-child(2) {
+      @include Nav($light-000);
+      background-color: $primary-500;
+    }
+
+    button:nth-child(2):hover {
+      background-color: $primary-400;
+    }
   }
 </style>
