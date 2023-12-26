@@ -1,0 +1,213 @@
+<section id="cookieConsent">
+  <!-- <div class="wrapper">
+    <div class="description">
+      <h2>Cookies</h2>
+      <p>
+        Wir verwenden Cookies und andere Technologien auf unserer Website.
+        Einige der Cookies sind essenziell, während andere uns helfen, unsere
+        Website und Ihr Nutzererlebnis zu verbessern. Für weitere Informationen
+        zu den von uns verwendeten Cookies, öffnen Sie bitte die Einstellungen.
+      </p>
+    </div>
+    <div class="buttons">
+      <div class="accept-reject">
+        <button>Alle ablehnen</button>
+        <button>Alle akzeptieren</button>
+      </div>
+      <button class="settings">Einstellungen verwalten</button>
+    </div>
+    <a class="privacy-policy" href="/datenschutz">Datenschutz</a>
+  </div> -->
+
+  <div class="wrapper">
+    <h2>Präferenzen</h2>
+
+    <div class="options">
+      <div class="option">
+        <div class="option-heading">
+          <h3>Notwendige Cookies</h3>
+          <input
+            type="checkbox"
+            name="notwendigeCookies"
+            value="notwendigeCookies"
+            checked
+            disabled
+          />
+        </div>
+        <p class="option-text">
+          Notwendige Cookies ermöglichen grundlegende Funktionen und sind für
+          die einwandfreie Funktion unserer Website erforderlich.
+        </p>
+      </div>
+
+      <div class="option">
+        <div class="option-heading">
+          <h3>Funktionale Cookies</h3>
+          <input
+            type="checkbox"
+            name="notwendigeCookies"
+            value="notwendigeCookies"
+            checked
+          />
+        </div>
+        <p class="option-text">
+          Durch diese Cookies kann unsere Website Ihre bevorzugten Einstellungen
+          (z. B. Ihre bevorzugte Sprache) speichern und sicherstellen, dass alle
+          unsere Dienste ordnungsgemäß funktionieren.
+        </p>
+      </div>
+
+      <div class="option">
+        <div class="option-heading">
+          <h3>Analytische Cookies</h3>
+          <input
+            type="checkbox"
+            name="notwendigeCookies"
+            value="notwendigeCookies"
+            checked
+          />
+        </div>
+        <p class="option-text">
+          Analytische Cookies erfassen Daten wie die Anzahl der Besucher und
+          Seitenaufrufe und speichern diese anonym. Diese Cookies helfen uns, zu
+          verstehen, wie unsere Besucher unsere Website nutzen.
+        </p>
+      </div>
+
+      <div class="option">
+        <div class="option-heading">
+          <h3>Marketing-Cookies</h3>
+          <input
+            type="checkbox"
+            name="notwendigeCookies"
+            value="notwendigeCookies"
+            checked
+          />
+        </div>
+        <p class="option-text">
+          Unsere Website verwendet Marketing-Cookies, um Ihnen personalisierte
+          Inhalte und Werbung anzuzeigen, die Ihren Interessen entsprechen.
+          Diese Cookies ermöglichen es uns und unseren Partnern, Informationen
+          über Ihre Browsing-Gewohnheiten zu sammeln, um Ihnen gezielte Werbung
+          bereitzustellen.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../abstractStyles/" as *;
+
+  section {
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: grid;
+    place-items: center;
+  }
+
+  h2 {
+    @include H2();
+  }
+
+  h3 {
+    @include H3();
+  }
+
+  p {
+    @include P();
+  }
+
+  .wrapper {
+    width: min(700px, 95vw);
+    padding: $space-30 $space-40;
+    border-radius: 20px;
+
+    background-color: $light-000;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-40;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: $space-medium;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: $space-small;
+  }
+
+  .accept-reject {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-small;
+
+    @include for-phone-only {
+      grid-template-columns: 1fr;
+    }
+
+    button {
+      padding: $space-small $space-medium;
+      @include Nav($primary-500);
+      font-weight: 500;
+      cursor: pointer;
+
+      background-color: $light-000;
+      border: 1px solid $primary-500;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: $primary-200;
+    }
+  }
+
+  .settings {
+    padding: $space-small $space-medium;
+    @include Nav($light-000);
+    font-weight: 500;
+    cursor: pointer;
+
+    background-color: $primary-500;
+    border: 1px solid $primary-500;
+    border-radius: 5px;
+  }
+
+  .settings:hover {
+    background-color: $primary-400;
+  }
+
+  .privacy-policy {
+    @include Nav($primary-500);
+    text-decoration: underline;
+    width: fit-content;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: $space-30;
+  }
+
+  .option {
+    display: flex;
+    flex-direction: column;
+    gap: $space-small;
+  }
+
+  .option-heading {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>

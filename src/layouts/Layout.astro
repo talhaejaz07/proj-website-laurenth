@@ -12,6 +12,8 @@ const {
 } = Astro.props;
 
 import Favicon from "../assets/images/favicon.webp";
+
+import CookieConsent from "../components/CookieConsent.astro";
 ---
 
 <!doctype html>
@@ -44,6 +46,8 @@ import Favicon from "../assets/images/favicon.webp";
       FooterButtonText={FooterButtonText}
       FooterButtonLink={FooterButtonLink}
     />
+
+    <CookieConsent />
   </body>
 </html>
 
@@ -84,6 +88,7 @@ import Favicon from "../assets/images/favicon.webp";
 
   body {
     overflow-x: hidden;
+    position: relative;
   }
 
   img {
